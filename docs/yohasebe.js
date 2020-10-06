@@ -70,7 +70,7 @@ $(document).ready(function(){
         next_elem_height = $(this).next().height();
       }
 
-      var padding = parseInt((windowHeight - (targetImg.height + next_elem_height) / 2)) + "px"
+      var padding = parseInt((windowHeight - (targetImg.height + next_elem_height)) / 2) + "px"
 
       orgBorderColor = $(this).parent().css("border-left-color");
       ifCurrent = $(this).parent().hasClass("current");
