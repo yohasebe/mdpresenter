@@ -1062,7 +1062,7 @@ cursor: pointer;
 transition: 0.5s;
 }
 
-p, dt, h1, h2, h3, h4, h5, h6, div.line-block{
+p, dt, h1, h2, h3, h4, h5, h6, div.line-block, figure{
   border-left: 10px solid transparent;
   padding-left: 10px !important;
 }

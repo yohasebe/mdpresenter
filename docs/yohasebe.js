@@ -97,7 +97,7 @@ $(document).ready(function(){
   //   location.reload();
   // }); 
 
-  var allText = $("p:not(li *), dt, li:not(table *), h1, h2, h3, h4, h5, h6, div.line-block, span.quiz");
+  var allText = $("p:not(li *), dt, li:not(table *), h1, h2, h3, h4, h5, h6, div.line-block, span.quiz, figure");
 
   var topMargin = 50;
   var bottomMargin = 100;
