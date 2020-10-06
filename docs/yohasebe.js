@@ -58,19 +58,26 @@ $(document).ready(function(){
       targetImg.height = orgHeight * (targetImg.width / orgWidth); 
 
       if(targetImg.height > windowHeight){
-        targetImg.height = windowHeight * 0.85; 
+        targetImg.height = windowHeight * 0.75; 
         targetImg.width = orgWidth * (targetImg.height / orgHeight);
       }
 
       orgPaddingTop = $(this).css("padding-top");
       orgPaddingBottom = $(this).css("padding-bottom");
 
-      var padding = parseInt((windowHeight - targetImg.height) / 2) + "px"
+      var next_elemn_height = 0;
+      if(targetImg.next()){
+        next_elemn_height = targetImg.next().height();
+      }
+
+      var padding = parseInt((windowHeight - (targetImg.height + next_elem_height) / 2)) + "px"
+
       orgBorderColor = $(this).parent().css("border-left-color");
       ifCurrent = $(this).parent().hasClass("current");
       $(this).parent().removeClass("current");
       $(this).css("padding-top", padding).css("padding-bottom", padding);
       $(this).attr("large", "true");
+
 
       $("body, html").animate({
         scrollTop: $(this).position().top
