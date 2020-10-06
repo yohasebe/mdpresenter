@@ -66,7 +66,7 @@ $(document).ready(function(){
       orgPaddingBottom = $(this).css("padding-bottom");
 
       var next_elemn_height = 0;
-      if(targetImg.next()){
+      if($(this).next()){
         next_elemn_height = targetImg.next().height();
       }
 
