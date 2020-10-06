@@ -123,13 +123,13 @@ $(document).ready(function(){
 
   function setToTop(currentText){
     $("body, html").animate({
-      scrollTop: currentText.position().top - topMargin;
+      scrollTop: currentText.position().top - topMargin
     }, 400);
   };
 
   function setToBottom(currentText){
     $("body, html").animate({
-      scrollTop: currentText.position().top - $(window).height() + currentText.height() + BottomMargin;
+      scrollTop: currentText.position().top - $(window).height() + currentText.height() + BottomMargin
     }, 400);
   };
 
