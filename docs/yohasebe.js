@@ -99,16 +99,17 @@ $(document).ready(function(){
 
   var allText = $("p:not(li *), dt, li:not(table *), h1, h2, h3, h4, h5, h6, div.line-block, span.quiz");
 
+  var topMargin = 50;
+  var bottomMargin = 100;
+
   function selectText(current) {
     allText.removeClass("current");
     var currentText = $(allText[current]);
     currentText.addClass("current");
 
-    // if(current >= 0 && currentText.isOnScreen() == false){
-    //   $("body, html").animate({
-    //     scrollTop: currentText.position().top - topMargin
-    //   }, 400);
-    // }
+    if(current >= 0 && currentText.isOnScreen() == false){
+      setToTop(currentText);
+    }
   }
 
   $("p, dt, li, h1, h2, h3, h4, h5, h6, div.line-block ").on("click", function(){
@@ -116,7 +117,17 @@ $(document).ready(function(){
     selectText(currentNum);
   });
 
-  var bottomMargin = 100;
+  function setToTop(currentText){
+    $("body, html").animate({
+      scrollTop: currentText.position().top - topMargin
+    }, 400);
+  };
+
+  function setToBottom(currentText){
+    $("body, html").animate({
+      scrollTop: currentText.position().top - currentText.height() + BottomMargin
+    }, 400);
+  };
 
   $.fn.isOnScreen = function(){
       var win = $(window);
@@ -136,8 +147,6 @@ $(document).ready(function(){
 
   var currentNum = 0;
   selectText(currentNum);
-
-  var topMargin = 50;
 
   var quiz_all_answered = false;
   $(window).keydown(function(e){
