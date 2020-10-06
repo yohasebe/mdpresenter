@@ -129,7 +129,7 @@ $(document).ready(function(){
 
   function setToBottom(currentText){
     $("body, html").animate({
-      scrollTop: currentText.position().top - currentText.height() + BottomMargin;
+      scrollTop: currentText.position().top - $(window).height() + currentText.height() + BottomMargin;
     }, 400);
   };
 
