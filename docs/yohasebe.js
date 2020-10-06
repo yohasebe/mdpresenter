@@ -13,7 +13,7 @@ $(document).ready(function(){
     var original = $(this).attr("src");
     var result = original.match(/.*youtube\.com\/watch\?v=(.+)/);
     if(result){
-      $(this).attr("src", "https://img.youtube.com/vi/" + result[1] + "/maxresdefault.jpg");
+      $(this).attr("src", "https://img.youtube.com/vi/" + result[1] + "/hqdefault.jpg");
       $(this).wrap("<div class='youtube'></div>");
       $(this).wrap("<a href='" + original + "'></a>");
       $(this).attr("height", "400px");
