@@ -49,7 +49,7 @@ $(document).ready(function(){
     var windowHeight = $(window).height();
     var targetImg = $(this).find("img")[0];
 
-    if($(this).attr("large") !== "true"){
+    if($(this).parent().attr("large") !== "true"){
 
       orgWidth  = targetImg.width;
       orgHeight = targetImg.height;
@@ -62,8 +62,8 @@ $(document).ready(function(){
         targetImg.width = orgWidth * (targetImg.height / orgHeight);
       }
 
-      orgPaddingTop = $(this).css("padding-top");
-      orgPaddingBottom = $(this).css("padding-bottom");
+      orgPaddingTop = $(this).parent().css("padding-top");
+      orgPaddingBottom = $(this).parent().css("padding-bottom");
 
       var next_elem_height = 0;
       if($(this).next()){
@@ -75,25 +75,25 @@ $(document).ready(function(){
       orgBorderColor = $(this).parent().css("border-left-color");
       ifCurrent = $(this).parent().hasClass("current");
       $(this).parent().removeClass("current");
-      $(this).css("padding-top", padding).css("padding-bottom", padding);
-      $(this).attr("large", "true");
+      $(this).parent().css("padding-top", padding).css("padding-bottom", padding);
+      $(this).parent().attr("large", "true");
 
 
       $("body, html").animate({
-        scrollTop: $(this).position().top
+        scrollTop: $(this).parent().position().top
       }, 400);
       return false;
 
     } else {
       targetImg.width = orgWidth; 
       targetImg.height = orgHeight; 
-      $(this).css("padding-top", orgPaddingTop).css("padding-bottom", orgPaddingBottom);
+      $(this).parent().css("padding-top", orgPaddingTop).css("padding-bottom", orgPaddingBottom);
       if(ifCurrent){
         $(this).parent().addClass("current");
         ifCurrent = false;
       }
-      var mid = $(this).position().top - (windowHeight - orgHeight) / 2;
-      $(this).attr("large", "false");
+      var mid = $(this).parent().position().top - (windowHeight - orgHeight) / 2;
+      $(this).parent().attr("large", "false");
       $("body, html").animate({
         scrollTop: mid,
       }, 400);
