@@ -24,6 +24,8 @@ $(document).ready(function(){
     if($(this).parent().prop("tagName") != "figure"){
       $(this).wrap($("<figure></figure>"));
       $(this).after($("<figcaption></figcaption>"));
+    } else {
+      $(this).parent().wrap($("<p></p>"));
     }
   });
 
