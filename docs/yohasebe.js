@@ -102,13 +102,17 @@ $(document).ready(function(){
   var topMargin = 50;
   var bottomMargin = 100;
 
-  function selectText(current) {
+  function selectText(current, direction) {
     allText.removeClass("current");
     var currentText = $(allText[current]);
     currentText.addClass("current");
 
     if(current >= 0 && currentText.isOnScreen() == false){
-      setToTop(currentText);
+      if(direction === "down"){
+        setToBottom(currentText);
+      } else {
+        setToTop(currentText);
+      }
     }
   }
 
@@ -119,13 +123,13 @@ $(document).ready(function(){
 
   function setToTop(currentText){
     $("body, html").animate({
-      scrollTop: currentText.position().top - topMargin
+      scrollTop: currentText.position().top - topMargin;
     }, 400);
   };
 
   function setToBottom(currentText){
     $("body, html").animate({
-      scrollTop: currentText.position().top - currentText.height() + BottomMargin
+      scrollTop: currentText.position().top - currentText.height() + BottomMargin;
     }, 400);
   };
 
@@ -154,7 +158,7 @@ $(document).ready(function(){
     if(kc === 74 || kc == 40){          // J or DOWN
       currentNum = currentNum + 1;
       if(currentNum < allText.length) {
-        selectText(currentNum);
+        selectText(currentNum, "down");
         return false;
       } else {
         currentNum = currentNum - 1;
