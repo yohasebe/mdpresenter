@@ -21,12 +21,6 @@ $(document).ready(function(){
       $(this).wrap("<div class='pic'></div>");
       $(this).attr("height", "200px");
     }
-    if($(this).parent().prop("tagName") != "figure"){
-      $(this).wrap($("<figure></figure>"));
-      $(this).after($("<figcaption></figcaption>"));
-    } else {
-      $(this).parent().wrap($("<p></p>"));
-    }
   });
 
   $("p, dt, li, h1, h2, h3, h4, h5, h6, div.line-block").each(function(){
