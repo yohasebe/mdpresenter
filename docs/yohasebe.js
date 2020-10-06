@@ -65,7 +65,7 @@ $(document).ready(function(){
       orgPaddingTop = $(this).css("padding-top");
       orgPaddingBottom = $(this).css("padding-bottom");
 
-      var next_elemn_height = 0;
+      var next_elem_height = 0;
       if($(this).next()){
         next_elemn_height = $(this).next().height();
       }
