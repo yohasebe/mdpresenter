@@ -67,7 +67,7 @@ $(document).ready(function(){
 
       var next_elemn_height = 0;
       if($(this).next()){
-        next_elemn_height = targetImg.next().height();
+        next_elemn_height = $(this).next().height();
       }
 
       var padding = parseInt((windowHeight - (targetImg.height + next_elem_height) / 2)) + "px"
