@@ -199,7 +199,7 @@ $(document).ready(function(){
                                             .filter(":not('a')")
                                             .toggleClass("selected");
       if(non_image.length){
-        setToTop($(allText[currentNum]), 400);
+        setToMiddle($(allText[currentNum]), 400);
       } else {
         $.each($(allText[currentNum]).find("img, a, span.quiz, span.answer").addBack("a, span.quiz, span.answer"), function(idx, val){
           if(val.tagName === "A"){
@@ -228,7 +228,7 @@ $(document).ready(function(){
         selectText(currentNum, "down");
         var non_image = $(allText[currentNum]).filter(":not(:has(figure))").filter(":not('.quiz, .answer')").toggleClass("selected");
         if(non_image.length){
-          setToTop($(allText[currentNum]), 400);
+          setToMiddle($(allText[currentNum]), 400);
         } else {
           $.each($(allText[currentNum]).find("span.quiz, span.answer").addBack("span.quiz, span.answer"), function(idx, val){
             val.click();
@@ -240,4 +240,7 @@ $(document).ready(function(){
       return false;
     }
   });
+
+  var bottom_padding = ($(window).height() - $(allText[-1]).height()) / 2;
+  $("body").css("margin-bottom", parseInt(bottom_padding) + "px");
 });
