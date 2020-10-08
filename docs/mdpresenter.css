@@ -1067,6 +1067,10 @@ p, dt, h1, h2, h3, h4, h5, h6, div.line-block, figure{
   padding-left: 10px !important;
 }
 
+div.line-block{
+  font-weight: bold;
+}
+
 li.selected,
 p.selected,
 dt.selected,
@@ -1174,6 +1178,7 @@ blockquote{
   border-left: 10px solid #fff;
 }
 
-blockquote *{
+blockquote p{
   padding-left: 0 !important;
 }
+
