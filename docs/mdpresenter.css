@@ -282,7 +282,7 @@ body ol ul, body ul ul {
 1
 
 body ul ul ol, body ul ol ol, body ol ul ol, body ol ol ol {
-  list-style-type:lower-alpha;
+  list-style-type: lower-alpha;
 }
 
 body dd {
@@ -1187,6 +1187,6 @@ blockquote p{
   padding-left: 0 !important;
 }
 
-ol li ::marker{
+::marker{
   font-weight: bold;
 }
