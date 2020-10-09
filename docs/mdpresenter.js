@@ -164,8 +164,8 @@ $(document).ready(function(){
   var quiz_all_answered = false;
   $(window).keydown(function(e){
     var kc = e.keyCode;
-    // J or DOWN or RIGHT 
-    if(kc === 74 || kc === 40 || kc == 39){
+    // J or DOWN 
+    if(kc === 74 || kc === 40){
       currentNum = currentNum + 1;
       if(currentNum < allText.length) {
         allText.removeClass("selected");
@@ -219,8 +219,8 @@ $(document).ready(function(){
         $("span.quiz").toggleClass("quiz").toggleClass("answer");
         quiz_all_answered = true;
       }
-      // SPACE
-    } else if(kc === 32){ 
+      // SPACE or RIGHT
+    } else if(kc === 32 || kc == 39){ 
       $("figure[large='true'] img").click();
       currentNum = currentNum + 1;
       if(currentNum < allText.length) {
