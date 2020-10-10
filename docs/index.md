@@ -55,13 +55,13 @@ From 5 to 7
 
 ### List inside list
 
-(@). a. Lorem ipsum dolor sit amet
-     b. Lorem ipsum dolor sit amet
-     c. Lorem ipsum dolor sit amet
+6. a. Lorem ipsum dolor sit amet
+   b. Lorem ipsum dolor sit amet
+   c. Lorem ipsum dolor sit amet
 
-(@). a. Lorem ipsum dolor sit amet
-     b. Lorem ipsum dolor sit amet
-     c. Lorem ipsum dolor sit amet
+7. a. Lorem ipsum dolor sit amet
+   b. Lorem ipsum dolor sit amet
+   c. Lorem ipsum dolor sit amet
 
 ----
 
