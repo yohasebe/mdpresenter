@@ -1230,3 +1230,7 @@ table caption {
   margin-bottom: 0.5em !important;
   font-weight: bold;
 }
+
+.printing {
+  opacity: 1.0;
+}

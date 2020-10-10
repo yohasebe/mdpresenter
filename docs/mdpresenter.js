@@ -214,29 +214,35 @@ $(document).ready(function(){
     } else if(kc === 190 || kc === 13){
       var currentText = $(allText[currentNum]);
       $(".selected").removeClass("selected");
-      var non_image = $(allText[currentNum]).filter(":not(:has(figure))")
+      var non_clickable = $(allText[currentNum]).filter(":not(:has(figure))")
                                             .filter(":not('.quiz, .answer')")
                                             .filter(":not('a')")
                                             .toggleClass("selected");
-      if(non_image.length){
+      if(non_clickable.length){
         setToMiddle(currentText, 200);
       } else {
-        $.each(currentText).find("img, a, span.quiz, span.answer").addBack("a, span.quiz, span.answer"), function(idx, val){
-          if(val.tagName === "A"){
-            window.open($(val).attr("href"), 'link window', 'width=800, height=1000');
-            return false;
-          } else {
-            val.click();
+        var clickable = currentText.filter("p, a, span.quiz, span.answer").first();
+        if(clickable.prop("tagName") === "SPAN"){
+          clickable.click();
+        } else if(clickable.prop("tagName") === "A"){
+          window.open(clickable.attr("href"), 'link window', 'width=800, height=1000');
+          return false;
+        }else{
+          var fig = clickable.find("figure img");
+          if(fig){
+            clickable.find("figure img").click();
           }
-        };
+        }
       }
-      // Q
-    } else if(kc === 81){ 
+      // P
+    } else if(kc === 80){ 
       if(quiz_all_answered){
         $("span.answer").toggleClass("answer").toggleClass("quiz");
+        $("li, pre, blockquote, p, dt, h1, h2, h3, h4, h5, h6, div.line-block").removeClass("printing")
         quiz_all_answered = false;
       } else {
         $("span.quiz").toggleClass("quiz").toggleClass("answer");
+        $("li, pre, blockquote, p, dt, h1, h2, h3, h4, h5, h6, div.line-block").addClass("printing");
         quiz_all_answered = true;
       }
       // SPACE or RIGHT

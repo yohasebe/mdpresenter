@@ -171,8 +171,8 @@ Lorem ipsum dolor sit [amet]{.quiz}, consectetur [adipiscing]{.quiz} elit, sed d
 
 : Move to end
 
-`Q`
+`P`
 
-: Toggle show/hide all the quiz elements
+: Show all the quiz answer keys and disable shading (for printing or exporting the document)
 
 ----
