@@ -175,3 +175,4 @@ Lorem ipsum dolor sit [amet]{.quiz}, consectetur [adipiscing]{.quiz} elit, sed d
 
 : Toggle show/hide all the quiz elements
 
+----
