@@ -212,12 +212,14 @@ $(document).ready(function(){
       selectText(currentNum);
       // DOT(.) or ENTER
     } else if(kc === 190 || kc === 13){
+      $(".selected").removeClass("selected");
       var non_image = $(allText[currentNum]).filter(":not(:has(figure))")
                                             .filter(":not('.quiz, .answer')")
                                             .filter(":not('a')")
                                             .toggleClass("selected");
       if(non_image.length){
-        setToMiddle($(allText[currentNum]), 300);
+        selectText(currentNum);
+        setToMiddle(reg_element, 200);
       } else {
         $.each($(allText[currentNum]).find("img, a, span.quiz, span.answer").addBack("a, span.quiz, span.answer"), function(idx, val){
           if(val.tagName === "A"){
