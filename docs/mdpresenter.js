@@ -115,7 +115,7 @@ $(document).ready(function(){
   var bottomMargin = 40;
   var duration = 50;
 
-  function selectText(current, direction = "top"){
+  function moveCursor(current, direction = "top"){
 
     allText.removeClass("current");
     $(".parental").removeClass("parental");
@@ -138,8 +138,9 @@ $(document).ready(function(){
   }
 
   $("p:not(blockquote *, dl *, dd *, li *), dt, li:not(table *), a:not(:has(img)), h1, h2, h3, h4, h5, h6, blockquote, pre, div.line-block").on("click", function(){
+    $(".selected").removeClass("selected");
     currentNum = allText.index($(this));
-    selectText(currentNum);
+    moveCursor(currentNum);
   });
 
   function setToTop(currentText, duration){
@@ -177,7 +178,8 @@ $(document).ready(function(){
   };
 
   var currentNum = 0;
-  selectText(currentNum);
+  moveCursor(currentNum);
+  $(allText[currentNum]).addClass("selected");
 
   var quiz_all_answered = false;
   $(window).keydown(function(e){
@@ -187,7 +189,7 @@ $(document).ready(function(){
       currentNum = currentNum + 1;
       if(currentNum < allText.length) {
         allText.removeClass("selected");
-        selectText(currentNum, "down");
+        moveCursor(currentNum, "down");
         return false;
       } else {
         currentNum = currentNum - 1;
@@ -197,7 +199,7 @@ $(document).ready(function(){
       currentNum = currentNum - 1;
       if(currentNum >= 0) {
         allText.removeClass("selected");
-        selectText(currentNum);
+        moveCursor(currentNum);
         return false;
       } else {
         currentNum = currentNum + 1;
@@ -205,15 +207,14 @@ $(document).ready(function(){
       // END or PAGEDOWN
     } else if(kc === 35 || kc === 34){ 
       currentNum = allText.length - 1
-      selectText(currentNum);
+      moveCursor(currentNum);
       // HOME or PAGEUP
     } else if(kc === 36 || kc === 33){ 
       currentNum = 0
-      selectText(currentNum);
+      moveCursor(currentNum);
       // DOT(.) or ENTER
     } else if(kc === 190 || kc === 13){
       var currentText = $(allText[currentNum]);
-      $(".selected").removeClass("selected");
       var non_clickable = $(allText[currentNum]).filter(":not(:has(figure))")
                                             .filter(":not('.quiz, .answer')")
                                             .filter(":not('a')")
@@ -260,7 +261,7 @@ $(document).ready(function(){
       }
       currentNum = currentNum + 1;
       if(currentNum < allText.length) {
-        selectText(currentNum, "down");
+        moveCursor(currentNum, "down");
         var reg_element = $(allText[currentNum]).toggleClass("selected");
         if(!["SPAN"].includes(reg_element.prop("tagName"))){
           setToMiddle(reg_element, 200);
@@ -274,4 +275,5 @@ $(document).ready(function(){
 
   var bottom_padding = ($(window).height() - $(allText[-1]).height()) / 2;
   $("body").css("margin-bottom", parseInt(bottom_padding) + "px");
+
 });
