@@ -73,7 +73,7 @@ $(document).ready(function(){
       var padding = parseInt((windowHeight - figure.height()) / 2) + "px"
 
       ifCurrent = figure.parent().hasClass("current");
-      figure.parent().removeClass("current");
+      figure.parent().removeClass("current").addClass("parental");
       ifSelected = figure.parent().hasClass("selected");
       figure.parent().removeClass("selected");
 
@@ -92,7 +92,7 @@ $(document).ready(function(){
       figure.css("padding-top", orgPaddingTop).css("padding-bottom", orgPaddingBottom);
 
       if(ifCurrent){
-        figure.parent().addClass("current");
+        figure.parent().addClass("current").removeClass("parental");
         ifCurrent = false;
       }
       if(ifSelected){
@@ -109,7 +109,7 @@ $(document).ready(function(){
   //   location.reload();
   // }); 
 
-  var allText = $("p:not(li *), dt, li:not(table *), a:not(:has(img)), h1, h2, h3, h4, h5, h6, div.line-block, span.quiz");
+  var allText = $("p:not(blockquote *, dl *, dd *, li *), dt, li:not(table *), a:not(:has(img)), h1, h2, h3, h4, h5, h6, blockquote, pre, dt, div.line-block, span.quiz");
 
   var topMargin = 40;
   var bottomMargin = 40;
@@ -118,8 +118,15 @@ $(document).ready(function(){
   function selectText(current, direction = "top"){
 
     allText.removeClass("current");
+    $(".parental").removeClass("parental");
     var currentText = $(allText[current]);
     currentText.addClass("current");
+
+    if(["SPAN", "A"].includes(currentText.prop("tagName"))){
+      currentText.parent().addClass("parental")
+    } else if(["DT"].includes(currentText.prop("tagName"))){
+      currentText.next().children().addClass("parental")
+    }
 
     if(current >= 0 && currentText.isOnScreen() == false){
       if(direction === "down"){
@@ -130,7 +137,7 @@ $(document).ready(function(){
     }
   }
 
-  $("p, dt, li, h1, h2, h3, h4, h5, h6, div.line-block ").on("click", function(){
+  $("p:not(blockquote *, dl *, dd *, li *), dt, li:not(table *), a:not(:has(img)), h1, h2, h3, h4, h5, h6, blockquote, pre, dt, div.line-block").on("click", function(){
     currentNum = allText.index($(this));
     selectText(currentNum);
   });
@@ -143,7 +150,7 @@ $(document).ready(function(){
 
   function setToMiddle(currentText, duration){
     $("body, html").animate({
-      scrollTop: currentText.position().top - (($(window).height() - currentText.height()) / 2)
+      scrollTop: currentText.position().top - (($(window).height() - currentText.outerHeight()) / 2) + topMargin
     }, duration);
   };
 
@@ -247,7 +254,7 @@ $(document).ready(function(){
       if(currentNum < allText.length) {
         selectText(currentNum, "down");
         var reg_element = $(allText[currentNum]).toggleClass("selected");
-        if(["P", "LI"].includes(reg_element.prop("tagName"))){
+        if(!["SPAN"].includes(reg_element.prop("tagName"))){
           setToMiddle(reg_element, 200);
         }
       } else {

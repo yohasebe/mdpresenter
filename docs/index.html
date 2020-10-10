@@ -17,64 +17,158 @@
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
-  <!-- development -->
-
   <link rel="stylesheet" href="./mdpresenter.css">
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <script src="./mdpresenter.js"></script>
-
-  <!-- production -->
-
-  <!-- <link rel="stylesheet" href="https://yohasebe.github.io/mdpresenter/mdpresenter.css"> -->
-  <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script> -->
-  <!-- <script src="https://yohasebe.github.io/mdpresenter/mdpresenter.js"></script> -->
 </head>
 <body>
 <header id="title-block-header">
 <h1 class="title">MD Presenter</h1>
-<p class="subtitle">A Markdown Presentation Toolkit</p>
+<p class="subtitle">A Markdown Presentation Toolkit for Pandoc</p>
 <p class="author">Yoichiro Hasebe</p>
-<p class="date">October 8, 2020 (Work in Progress / Experimental Stage)</p>
+<p class="date">October 10, 2020 (Work in Progress / Experimental Stage)</p>
 </header>
 <hr />
-<h3 id="heading">Heading</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h2 id="block-types">Block Types</h2>
+<hr />
+<h3 id="paragraph">Paragraph</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<hr />
+<h3 id="unordered-list">Unordered List</h3>
+<ul>
+<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+<li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
+<li>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+</ul>
+<hr />
+<h3 id="list-items-having-urls">List items having URLs</h3>
 <ul>
 <li><a href="">Link List 1</a></li>
 <li><a href="">Link List 2</a></li>
 <li><a href="">Link List 3</a></li>
 </ul>
+<hr />
+<h3 id="ordered-list">Ordered List</h3>
+<p>From 1 to 3</p>
 <ol type="1">
-<li><p>abc</p></li>
-<li><p>def</p></li>
-<li><p>fgh</p></li>
-<li><p>abc</p></li>
-<li><p>def</p></li>
-<li><p>fgh</p></li>
+<li>abc</li>
+<li>def</li>
+<li>fgh</li>
+</ol>
+<p>From 5 to 7</p>
+<ol start="5" type="1">
+<li>abc</li>
+<li>def</li>
+<li>fgh</li>
 </ol>
 <hr />
-<h2 id="heading-1">Heading</h2>
-<h3 id="heading-2">Heading</h3>
-<p><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h3 id="definition">Definition</h3>
+<dl>
+<dt>Lorem ipsum</dt>
+<dd><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</dd>
+<dt>Lorem ipsum</dt>
+<dd><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+</dd>
+</dl>
+<hr />
+<h3 id="code-block">Code Block</h3>
+<pre><code>div.line-block{
+  font-weight: bold;
+}</code></pre>
+<hr />
+<h3 id="line-block">Line Block</h3>
+<div class="line-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit<br />
+Ut enim ad minim veniam<br />
+Duis aute irure dolor in reprehenderit<br />
+Excepteur sint occaecat cupidatat non proident</div>
+<hr />
+<h3 id="image">Image</h3>
 <figure>
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Louvre_Museum_Wikimedia_Commons.jpg/1200px-Louvre_Museum_Wikimedia_Commons.jpg" alt="Picture: Louvre" /><figcaption aria-hidden="true">Picture: Louvre</figcaption>
 </figure>
 <hr />
-<h3 id="quiz">Quiz</h3>
-<p>Lorem ipsum dolor sit {amet}, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad {minim} veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. {Duis} aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est {laborum}.</p>
+<h3 id="table">Table</h3>
+<table>
+<caption>Table Caption 1</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">TH</th>
+<th style="text-align: left;">TH</th>
+<th style="text-align: left;">TH</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">TD</td>
+<td style="text-align: left;">TD</td>
+<td style="text-align: left;">TD</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TD</td>
+<td style="text-align: left;">TD</td>
+<td style="text-align: left;">TD</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h3 id="list">List</h3>
-<ol type="1">
-<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
-<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-<li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
-<li>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
-</ol>
-<hr />
-<h3 id="quotation">Quotation</h3>
+<h3 id="blockquote">Blockquote</h3>
 <blockquote>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </blockquote>
 <hr />
+<h3 id="quiz">Quiz</h3>
+<p>Lorem ipsum dolor sit {amet}, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad {minim} veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. {Duis} aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est {laborum}.</p>
+<hr />
+<h1 id="heading-1">Heading 1</h1>
+<h2 id="heading-2">Heading 2</h2>
+<h3 id="heading-3">Heading 3</h3>
+<h4 id="heading-4">Heading 4</h4>
+<h5 id="heading-5">Heading 5</h5>
+<h6 id="heading-6">Heading 6</h6>
+<hr />
+<h2 id="zoom-screen">Zoom Screen</h2>
+<dl>
+<dt><code>CTRL +</code> / <code>COMMAND +</code></dt>
+<dd><p>Zoom screen</p>
+</dd>
+<dt><code>CTRL -</code> / <code>COMMAND -</code></dt>
+<dd><p>Zoom out screen</p>
+</dd>
+<dt><code>CTRL 0</code> / <code>COMMAND 0</code></dt>
+<dd><p>Reset to default</p>
+</dd>
+</dl>
+<hr />
+<h2 id="keybindings">Keybindings</h2>
+<dl>
+<dt><code>UP</code> / <code>DOWN</code></dt>
+<dd><p>Move cursor up and down</p>
+</dd>
+<dt><code>ENTER</code> / <code>DOT (.)</code></dt>
+<dd><p>Focus/defocus current element</p>
+</dd>
+</dl>
+<ul>
+<li>Focusing a link = open a new window and access the link</li>
+<li>Focusing an image = Expand the image</li>
+<li>Focusing a quiz element = show the answer key</li>
+</ul>
+<dl>
+<dt><code>SPACE</code> / <code>RIGHT</code></dt>
+<dd><p>Move cursor to next and focus</p>
+</dd>
+<dt><code>PAGEUP</code> / <code>HOME</code></dt>
+<dd><p>Move to top</p>
+</dd>
+<dt><code>PAGEDOWN</code> / <code>END</code></dt>
+<dd><p>Move to end</p>
+</dd>
+<dt><code>Q</code></dt>
+<dd><p>Toggle show/hide all the quiz elements</p>
+</dd>
+</dl>
 </body>
 </html>

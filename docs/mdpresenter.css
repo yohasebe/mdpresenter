@@ -295,7 +295,7 @@ body tt, body code, body pre {
 
 body pre {
   background-color: #f6f8fa;
-  border-radius: 3px;
+  /* border-radius: 3px; */
   font-size: 85%;
   line-height: 1.45;
   overflow: auto;
@@ -308,7 +308,7 @@ body {
   -webkit-font-smoothing: antialiased;
   background: #fff;
   border: solid 0px #dddddd !important;
-  border-radius: 3px;
+  /* border-radius: 3px; */
   color: #333;
   font: 14px -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   line-height: 1.6;
@@ -354,7 +354,6 @@ hr {
   height: 4px;
   padding: 0;
   margin: 16px 0;
-  background-color: #e7e7e7;
   border:0 none
 }
 
@@ -394,7 +393,6 @@ dl dt {
   padding: 0;
   margin-top: 16px;
   font-size: 1em;
-  font-style: italic;
   font-weight:700
 }
 
@@ -537,7 +535,7 @@ span.float-right > span {
 
 code, tt {
   background-color: rgba(0, 0, 0, 0.04);
-  border-radius: 3px;
+  /* border-radius: 3px; */
   font-size: 85%;
   margin: 0;
   padding-bottom: .2em;
@@ -584,7 +582,7 @@ pre > code {
   font-size: 85%;
   line-height: 1.45;
   background-color: #f7f7f7;
-  border-radius:3px
+  /* border-radius:3px */
 }
 
 pre {
@@ -594,7 +592,7 @@ pre {
   font-size: 85%;
   line-height: 1.45;
   background-color: #f7f7f7;
-  border-radius: 3px;
+  /* border-radius: 3px; */
   word-wrap:normal
 }
 
@@ -999,7 +997,7 @@ body.dark body {
 kbd {
   background-color: #fafbfc;
   border: 1px solid #d1d5da;
-  border-radius: 3px;
+  /* border-radius: 3px; */
   box-shadow: inset 0 -1px 0 #d1d5da;
   color: #444d56;
   display: inline-block;
@@ -1043,7 +1041,7 @@ body blockquote {
 body hr {
   margin-top: 2em;
   margin-bottom: 2em;
-  border-top: 5px solid gray;
+  border-top: 3px solid gray;
 }
 
 span.quiz{
@@ -1077,8 +1075,23 @@ div.line-block{
 }
 
 
-.current, .line-block.current{
+p.current,
+h1.current,
+h2.current,
+h3.current,
+h4.current,
+h5.current,
+h6.current,
+dt.current,
+pre.current,
+blockquote.current,
+div.line-block.current{
   border-left: 10px solid pink !important;
+}
+
+.current::marker{
+  color: pink;
+  text-decoration: underline;
 }
 
 a.current, span.quiz.current, span.answer.current{
@@ -1167,11 +1180,11 @@ p.author{
   line-height:25px
 }
 
-blockquote{
+blockquote, pre{
   border-left: 10px solid #fff;
 }
 
-blockquote p{
+blockquote *, pre *{
   padding-left: 0 !important;
 }
 
@@ -1180,6 +1193,8 @@ blockquote p{
 }
 
 li.selected,
+pre.selected,
+blockquote.selected,
 p.selected,
 dt.selected,
 h1.selected,
@@ -1190,4 +1205,28 @@ h5.selected,
 h6.selected,
 div.line-block.selected {
   background-color: #F0F4FF;
+}
+
+li,
+pre,
+blockquote,
+p,
+dt,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div.line-block {
+  opacity: 0.7;
+}
+
+.current, .selected, .parental{
+  opacity: 1.0;
+}
+
+table caption {
+  margin-bottom: 0.5em !important;
+  font-weight: bold;
 }
