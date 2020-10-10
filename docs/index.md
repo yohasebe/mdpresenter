@@ -35,18 +35,6 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 ----
 
-### List inside list
-
-1. a. Lorem ipsum dolor sit amet
-   b. Lorem ipsum dolor sit amet
-   c. Lorem ipsum dolor sit amet
-
-102. a. Lorem ipsum dolor sit amet
-     b. Lorem ipsum dolor sit amet
-     c. Lorem ipsum dolor sit amet
-
-----
-
 ### Ordered List
 
 From 1 to 3
@@ -62,6 +50,18 @@ From 5 to 7
 5. abc
 6. def
 7. fgh
+
+----
+
+### List inside list
+
+1. a. Lorem ipsum dolor sit amet
+   b. Lorem ipsum dolor sit amet
+   c. Lorem ipsum dolor sit amet
+
+5. a. Lorem ipsum dolor sit amet
+   b. Lorem ipsum dolor sit amet
+   c. Lorem ipsum dolor sit amet
 
 ----
 
