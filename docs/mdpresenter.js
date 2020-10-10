@@ -47,6 +47,7 @@ $(document).ready(function(){
   var orgPaddingTop;
   var orgPaddingBottom;
   var ifCurrent;
+  var ifSelected;
 
   $("figure img").not(".youtube").on("click", function(){
     var windowWidth = $(window).width();
@@ -70,14 +71,18 @@ $(document).ready(function(){
       orgPaddingBottom = figure.css("padding-bottom");
 
       var padding = parseInt((windowHeight - figure.height()) / 2) + "px"
+
       ifCurrent = figure.parent().hasClass("current");
       figure.parent().removeClass("current");
+      ifSelected = figure.parent().hasClass("selected");
+      figure.parent().removeClass("selected");
+
       figure.attr("large", "true");
       figure.css("padding-top", padding).css("padding-bottom", padding);
 
       $("body, html").animate({
         scrollTop: figure.position().top
-      }, 400);
+      }, 300);
       return false;
 
     } else {
@@ -85,10 +90,16 @@ $(document).ready(function(){
       targetImg.height = orgHeight; 
 
       figure.css("padding-top", orgPaddingTop).css("padding-bottom", orgPaddingBottom);
+
       if(ifCurrent){
         figure.parent().addClass("current");
         ifCurrent = false;
       }
+      if(ifSelected){
+        figure.parent().addClass("selected");
+        ifSelected = false;
+      }
+
       figure.attr("large", "false");
       setToMiddle(figure.parent(), 0);
     }
@@ -199,7 +210,7 @@ $(document).ready(function(){
                                             .filter(":not('a')")
                                             .toggleClass("selected");
       if(non_image.length){
-        setToMiddle($(allText[currentNum]), 400);
+        setToMiddle($(allText[currentNum]), 300);
       } else {
         $.each($(allText[currentNum]).find("img, a, span.quiz, span.answer").addBack("a, span.quiz, span.answer"), function(idx, val){
           if(val.tagName === "A"){
@@ -221,18 +232,23 @@ $(document).ready(function(){
       }
       // SPACE or RIGHT
     } else if(kc === 32 || kc == 39){ 
+      // reset selection
+      allText.removeClass("selected");
+      // large images are normalized first
       $("figure[large='true'] img").click();
+
+      var cal = $(allText[currentNum]);
+      // if current_text is quiz
+      if(cal.filter("span.quiz.current").length){
+        cal.click();
+        return false;
+      }
       currentNum = currentNum + 1;
       if(currentNum < allText.length) {
-        allText.removeClass("selected");
         selectText(currentNum, "down");
-        var non_image = $(allText[currentNum]).filter(":not(:has(figure))").filter(":not('.quiz, .answer')").toggleClass("selected");
-        if(non_image.length){
-          setToMiddle($(allText[currentNum]), 400);
-        } else {
-          $.each($(allText[currentNum]).find("span.quiz, span.answer").addBack("span.quiz, span.answer"), function(idx, val){
-            val.click();
-          });
+        var reg_element = $(allText[currentNum]).toggleClass("selected");
+        if(["P", "LI"].includes(reg_element.prop("tagName"))){
+          setToMiddle(reg_element, 200);
         }
       } else {
         currentNum = currentNum - 1;

@@ -1076,18 +1076,6 @@ div.line-block{
   font-weight: bold;
 }
 
-li.selected,
-p.selected,
-dt.selected,
-h1.selected,
-h2.selected,
-h3.selected,
-h4.selected,
-h5.selected,
-h6.selected,
-div.line-block.selected {
-  background-color: #F0F4FF;
-}
 
 .current, .line-block.current{
   border-left: 10px solid pink !important;
@@ -1189,4 +1177,17 @@ blockquote p{
 
 ::marker{
   font-weight: bold;
+}
+
+li.selected,
+p.selected,
+dt.selected,
+h1.selected,
+h2.selected,
+h3.selected,
+h4.selected,
+h5.selected,
+h6.selected,
+div.line-block.selected {
+  background-color: #F0F4FF;
 }
