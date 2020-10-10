@@ -137,7 +137,7 @@ $(document).ready(function(){
     }
   }
 
-  $("p:not(blockquote *, dl *, dd *, li *), dt, li:not(table *), a:not(:has(img)), h1, h2, h3, h4, h5, h6, blockquote, pre, dt, div.line-block").on("click", function(){
+  $("p:not(blockquote *, dl *, dd *, li *), dt, li:not(table *), a:not(:has(img)), h1, h2, h3, h4, h5, h6, blockquote, pre, div.line-block").on("click", function(){
     currentNum = allText.index($(this));
     selectText(currentNum);
   });
@@ -212,23 +212,23 @@ $(document).ready(function(){
       selectText(currentNum);
       // DOT(.) or ENTER
     } else if(kc === 190 || kc === 13){
+      var currentText = $(allText[currentNum]);
       $(".selected").removeClass("selected");
       var non_image = $(allText[currentNum]).filter(":not(:has(figure))")
                                             .filter(":not('.quiz, .answer')")
                                             .filter(":not('a')")
                                             .toggleClass("selected");
       if(non_image.length){
-        selectText(currentNum);
-        setToMiddle(reg_element, 200);
+        setToMiddle(currentText, 200);
       } else {
-        $.each($(allText[currentNum]).find("img, a, span.quiz, span.answer").addBack("a, span.quiz, span.answer"), function(idx, val){
+        $.each(currentText).find("img, a, span.quiz, span.answer").addBack("a, span.quiz, span.answer"), function(idx, val){
           if(val.tagName === "A"){
             window.open($(val).attr("href"), 'link window', 'width=800, height=1000');
             return false;
           } else {
             val.click();
           }
-        });
+        };
       }
       // Q
     } else if(kc === 81){ 

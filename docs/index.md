@@ -39,9 +39,11 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 From 1 to 3
 
-1. abc
-2. def
-3. fgh
+(1) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+(2)    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+       Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 From 5 to 7
 
@@ -109,7 +111,7 @@ Table: Table Caption 1
 
 ### Quiz
 
-Lorem ipsum dolor sit {amet}, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad {minim} veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. {Duis} aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est {laborum}.
+Lorem ipsum dolor sit [amet]{.quiz}, consectetur [adipiscing]{.quiz} elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad {minim} veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. {Duis} aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est {laborum}.
 
 ----
 
