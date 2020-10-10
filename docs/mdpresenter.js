@@ -82,7 +82,7 @@ $(document).ready(function(){
 
       $("body, html").animate({
         scrollTop: figure.position().top
-      }, 300);
+      }, 0);
       return false;
 
     } else {

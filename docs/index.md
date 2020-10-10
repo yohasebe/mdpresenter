@@ -1,8 +1,9 @@
-Title: MD Presenter
-Subtitle: A Markdown Presentation Toolkit for Pandoc
-Author: Yoichiro Hasebe
-Web: https://github.io/yohasebe/mdpreseenter
-Date: October 10, 2020 (Work in Progress / Experimental Stage)
+title: MD Presenter
+subtitle: A Markdown Presentation Toolkit for Pandoc
+author: Yoichiro Hasebe
+date: October 10, 2020 (Work in Progress / Experimental Stage)
+
+<https://yohasebe.github.io/mdpresenter>
 
 ----
 
