@@ -177,9 +177,13 @@ $(document).ready(function(){
     return (!(viewport.right < bounds.left + width || viewport.left > bounds.right - width || viewport.bottom - bottomMargin < bounds.top + height || viewport.top > bounds.bottom - height));
   };
 
+  function setToTop(){
+    moveCursor(0);
+    $(allText[0]).addClass("selected");
+  }
+
   var currentNum = 0;
-  moveCursor(currentNum);
-  $(allText[currentNum]).addClass("selected");
+  setToTop(0);
 
   var quiz_all_answered = false;
   $(window).keydown(function(e){
@@ -220,7 +224,8 @@ $(document).ready(function(){
                                             .filter(":not('a')")
                                             .toggleClass("selected");
       if(non_clickable.length){
-        setToMiddle(currentText, 200);
+        // setToMiddle(currentText, 200);
+        ;
       } else {
         var clickable = currentText.filter("p, a, span.quiz, span.answer").first();
         if(clickable.prop("tagName") === "SPAN"){
@@ -246,6 +251,7 @@ $(document).ready(function(){
         $("li, pre, blockquote, p, dt, h1, h2, h3, h4, h5, h6, div.line-block").addClass("printing");
         quiz_all_answered = true;
       }
+      setToTop();
       // SPACE or RIGHT
     } else if(kc === 32 || kc == 39){ 
       // reset selection

@@ -40,21 +40,25 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 From 1 to 3
 
-(1) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+(1)  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-(2)    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+(2)  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 
-       Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+(3)  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
-From 5 to 7
+     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-5. abc
-6. def
-7. fgh
+From A to B
+
+A.  abc
+B.  def
+C.  fgh
 
 ----
 
 ### List inside list
+
+1 to 2 
 
 1. - Lorem ipsum dolor sit amet
    - Lorem ipsum dolor sit amet
@@ -63,6 +67,8 @@ From 5 to 7
 2. - Lorem ipsum dolor sit amet
    - Lorem ipsum dolor sit amet
    - Lorem ipsum dolor sit amet
+
+98 to 99
 
 98. a. Lorem ipsum dolor sit amet
     b. Lorem ipsum dolor sit amet
@@ -150,9 +156,15 @@ Lorem ipsum dolor sit [amet]{.quiz}, consectetur [adipiscing]{.quiz} elit, sed d
 
 ----
 
-## Zoom Screen
+## Browser Shortcuts
 
-`CTRL +` / `COMMAND +`
+#### Zoom Screen
+
+`F11` / `CTRL and COMMAND and F`
+
+: Toggle fullscreen mode
+
+`CTRL +` / `COMMAND and +`
 
 : Zoom screen
 
@@ -182,7 +194,7 @@ Lorem ipsum dolor sit [amet]{.quiz}, consectetur [adipiscing]{.quiz} elit, sed d
 
 `SPACE` / `RIGHT`
 
-: Move cursor to next and focus
+: Move cursor to next element, focus it, and set it to middle of screen
 
 `PAGEUP` / `HOME`
 

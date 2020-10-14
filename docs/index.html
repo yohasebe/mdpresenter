@@ -17,9 +17,9 @@
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
-  <link rel="stylesheet" href="https://yohasebe.github.io/mdpresenter/mdpresenter.css?ts=20201010_212136">
+  <link rel="stylesheet" href="https://yohasebe.github.io/mdpresenter/mdpresenter.css?ts=20201014_110428">
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-  <script src="https://yohasebe.github.io/mdpresenter/mdpresenter.js?ts=20201010_212136"></script>
+  <script src="https://yohasebe.github.io/mdpresenter/mdpresenter.js?ts=20201014_110428"></script>
 </head>
 <body>
 <header id="title-block-header">
@@ -54,18 +54,20 @@
 <h3 id="ordered-list">Ordered List</h3>
 <p>From 1 to 3</p>
 <ol type="1">
-<li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></li>
+<li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></li>
+<li><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></li>
 <li><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></li>
 </ol>
-<p>From 5 to 7</p>
-<ol start="5" type="1">
+<p>From A to B</p>
+<ol type="A">
 <li>abc</li>
 <li>def</li>
 <li>fgh</li>
 </ol>
 <hr />
 <h3 id="list-inside-list">List inside list</h3>
+<p>1 to 2</p>
 <ol type="1">
 <li><ul>
 <li>Lorem ipsum dolor sit amet</li>
@@ -77,6 +79,9 @@
 <li>Lorem ipsum dolor sit amet</li>
 <li>Lorem ipsum dolor sit amet</li>
 </ul></li>
+</ol>
+<p>98 to 99</p>
+<ol start="98" type="1">
 <li><ol type="a">
 <li>Lorem ipsum dolor sit amet</li>
 <li>Lorem ipsum dolor sit amet</li>
@@ -154,9 +159,13 @@ Excepteur sint occaecat cupidatat non proident</div>
 <h5 id="heading-5">Heading 5</h5>
 <h6 id="heading-6">Heading 6</h6>
 <hr />
-<h2 id="zoom-screen">Zoom Screen</h2>
+<h2 id="browser-shortcuts">Browser Shortcuts</h2>
+<h4 id="zoom-screen">Zoom Screen</h4>
 <dl>
-<dt><code>CTRL +</code> / <code>COMMAND +</code></dt>
+<dt><code>F11</code> / <code>CTRL and COMMAND and F</code></dt>
+<dd><p>Toggle fullscreen mode</p>
+</dd>
+<dt><code>CTRL +</code> / <code>COMMAND and +</code></dt>
 <dd><p>Zoom screen</p>
 </dd>
 <dt><code>CTRL -</code> / <code>COMMAND -</code></dt>
@@ -183,7 +192,7 @@ Excepteur sint occaecat cupidatat non proident</div>
 </ul>
 <dl>
 <dt><code>SPACE</code> / <code>RIGHT</code></dt>
-<dd><p>Move cursor to next and focus</p>
+<dd><p>Move cursor to next element, focus it, and set it to middle of screen</p>
 </dd>
 <dt><code>PAGEUP</code> / <code>HOME</code></dt>
 <dd><p>Move to top</p>
