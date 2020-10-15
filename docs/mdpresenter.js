@@ -184,7 +184,6 @@ $(document).ready(function(){
   var currentNum = 0;
 
   function toHome(){
-    console.log("tohome");
     currentNum = 0;
     $(".current").removeClass("current");
     $(".selected").removeClass("selected");
@@ -193,7 +192,6 @@ $(document).ready(function(){
   }
 
   function toEnd(){
-    console.log("toend");
     currentNum = allText.length - 1
     $(".current").removeClass("current");
     $(".selected").removeClass("selected");
