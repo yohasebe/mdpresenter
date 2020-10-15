@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>mdpresenter</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="https://yohasebe.github.io/mdpresenter/mdpresenter.css?ts=20201014_110428">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="https://yohasebe.github.io/mdpresenter/mdpresenter.js?ts=20201014_110428"></script>
+</head>
+<body>
+$(document).ready(function(){ $(“table”).each(function(){ $(this).wrap("
+<p>
+<p>
+“); $(this).wrap(”
+<div class='table'>
+<div>
+<p>"); });</p>
+$(“img”).each(function(){ var original = <span class="math inline">$(this).attr("src");  if($</span>(this).parent().prop(“tagName”) == “FIGURE”){ $(this).parent().wrap("
+<p>
+</p>
+“) } else { $(this).wrap(”
+<figure>
+</figure>
+“); $(this).after(”
+<figcaption>
+</figcaption>
+<p>“); } $(this).attr(”height“,”200px"); var result = original.match(/.*youtube.com/watch?v=(.+)/); if(result){ $(this).attr(“src”, “https://img.youtube.com/vi/” + result[1] + “/hqdefault.jpg”); $(this).addClass(“youtube”); $(this).wrap(“<a href='" + original + "'></a>”); $(this).attr(“height”, “200px”); } });</p>
+<p>$(“p, dt, li, h1, h2, h3, h4, h5, h6, div.line-block”).each(function(){ var text = $(this).html(); $(this).html(text.replace(/{([^\{\}]+?)}/g, “<span class="quiz">$1</span>”)); });</p>
+<p>$(“span.quiz”).on(“click”, function(){ $(this).toggleClass(“quiz”).toggleClass(“answer”); return false; });</p>
+<p>$(“span.answer”).on(“click”, function(){ $(this).toggleClass(“quiz”).toggleClass(“answer”); return false; });</p>
+<p><span class="math inline">$("a").on("click", function(){  window.open($</span>(this).attr(“href”), ‘link window’, ‘width=800, height=1000’); return false; });</p>
+<p>var orgWidth; var orgHeight; var orgPaddingTop; var orgPaddingBottom; var ifCurrent; var ifSelected;</p>
+<p>$(“figure img”).not(“.youtube”).on(“click”, function(){ var windowWidth = $(window).width(); var windowHeight = $(window).height(); var targetImg = $(this)[0];</p>
+<pre><code>var figure = $(this).parent();
+
+if(figure.attr(&quot;large&quot;) !== &quot;true&quot;){
+  orgWidth  = targetImg.width;
+  orgHeight = targetImg.height;
+  targetImg.width = windowWidth * 0.75;  
+  targetImg.height = orgHeight * (targetImg.width / orgWidth); 
+
+  if(targetImg.height &gt; windowHeight){
+    targetImg.height = windowHeight * 0.85; 
+    targetImg.width = orgWidth * (targetImg.height / orgHeight);
+  }
+
+  orgPaddingTop = figure.css(&quot;padding-top&quot;);
+  orgPaddingBottom = figure.css(&quot;padding-bottom&quot;);
+
+  var padding = parseInt((windowHeight - figure.height()) / 2) + &quot;px&quot;
+
+  ifCurrent = figure.parent().hasClass(&quot;current&quot;);
+  figure.parent().removeClass(&quot;current&quot;).addClass(&quot;parental&quot;);
+  ifSelected = figure.parent().hasClass(&quot;selected&quot;);
+  figure.parent().removeClass(&quot;selected&quot;);
+
+  figure.attr(&quot;large&quot;, &quot;true&quot;);
+  figure.css(&quot;padding-top&quot;, padding).css(&quot;padding-bottom&quot;, padding);
+
+  $(&quot;body, html&quot;).animate({
+    scrollTop: figure.position().top
+  }, 0);
+  return false;
+
+} else {
+  targetImg.width = orgWidth; 
+  targetImg.height = orgHeight; 
+
+  figure.css(&quot;padding-top&quot;, orgPaddingTop).css(&quot;padding-bottom&quot;, orgPaddingBottom);
+
+  if(ifCurrent){
+    figure.parent().addClass(&quot;current&quot;).removeClass(&quot;parental&quot;);
+    ifCurrent = false;
+  }
+  if(ifSelected){
+    figure.parent().addClass(&quot;selected&quot;);
+    ifSelected = false;
+  }
+
+  figure.attr(&quot;large&quot;, &quot;false&quot;);
+  setToMiddle(figure.parent(), 0);
+}</code></pre>
+<p>});</p>
+<p>// window.addEventListener(“resize”, function(){ // location.reload(); // });</p>
+<p>var allText = $("p:not(blockquote <em>, dl </em>, dd <em>, li </em>), dt, li:not(table *), a:not(:has(img)), h1, h2, h3, h4, h5, h6, blockquote, pre, dt, div.line-block, span.quiz");</p>
+<p>var topMargin = 40; var bottomMargin = 40; var duration = 50;</p>
+<p>function moveCursor(current, direction = “top”){</p>
+<pre><code>allText.removeClass(&quot;current&quot;);
+$(&quot;.parental&quot;).removeClass(&quot;parental&quot;);
+var currentText = $(allText[current]);
+currentText.addClass(&quot;current&quot;);
+
+if([&quot;SPAN&quot;, &quot;A&quot;].includes(currentText.prop(&quot;tagName&quot;))){
+  currentText.parent().addClass(&quot;parental&quot;)
+} else if([&quot;DT&quot;].includes(currentText.prop(&quot;tagName&quot;))){
+  currentText.next().children().addClass(&quot;parental&quot;)
+}
+
+if(current &gt;= 0 &amp;&amp; currentText.isOnScreen() == false){
+  if(direction === &quot;down&quot;){
+    setToBottom(currentText, duration);
+  } else {
+    setToTop(currentText, duration);
+  }
+}</code></pre>
+<p>}</p>
+<p>$("p:not(blockquote <em>, dl </em>, dd <em>, li </em>), dt, li:not(table *), a:not(:has(img)), h1, h2, h3, h4, h5, h6, blockquote, pre, div.line-block“).on(”click", function(){ <span class="math inline">$(".selected").removeClass("selected");  currentNum = allText.index($</span>(this)); moveCursor(currentNum); });</p>
+<p>function setToTop(currentText, duration){ $(“body, html”).animate({ scrollTop: currentText.position().top - topMargin }, duration); };</p>
+<p>function setToMiddle(currentText, duration){ <span class="math inline">$("body, html").animate({  scrollTop: currentText.position().top - (($</span>(window).height() - currentText.outerHeight()) / 2) + topMargin }, duration); };</p>
+<p>function setToBottom(currentText, duration){ $(“body, html”).animate({ scrollTop: currentText.position().top - $(window).height() + currentText.height() + bottomMargin }, duration); };</p>
+<p>$.fn.isOnScreen = function(){ var win = $(window); var viewport = { top : win.scrollTop(), left : win.scrollLeft() }; viewport.right = viewport.left + win.width(); viewport.bottom = viewport.top + win.height(); var bounds = this.offset(); try { bounds.right = bounds.left + this.outerWidth(); bounds.bottom = bounds.top + this.outerHeight(); var height = bounds.bottom - bounds.top; var width = bounds.right - bounds.left; } catch(e) { return false; } return (!(viewport.right &lt; bounds.left + width || viewport.left &gt; bounds.right - width || viewport.bottom - bottomMargin &lt; bounds.top + height || viewport.top &gt; bounds.bottom - height)); };</p>
+<p>var currentNum = 0; setToTop(0);</p>
+<p>var quiz_all_answered = false; $(window).keydown(function(e){ var kc = e.keyCode; // J or DOWN if(kc === 74 || kc === 40){ currentNum = currentNum + 1; if(currentNum &lt; allText.length) { allText.removeClass(“selected”); moveCursor(currentNum, “down”); return false; } else { currentNum = currentNum - 1; } // K or UP or LEFT } else if(kc === 75 || kc === 38 || kc == 37){ currentNum = currentNum - 1; if(currentNum &gt;= 0) { allText.removeClass(“selected”); moveCursor(currentNum); return false; } else { currentNum = currentNum + 1; } // END } else if(kc === 35){ currentNum = allText.length - 1 moveCursor(currentNum); // HOME } else if(kc === 36){ currentNum = 0 moveCursor(currentNum); // DOT(.) or ENTER } else if(kc === 190 || kc === 13){ var currentText = $(allText[currentNum]); var non_clickable = $(allText[currentNum]).filter(“:not(:has(figure))”) .filter(“:not(‘.quiz, .answer’)”) .filter(“:not(‘a’)”) .toggleClass(“selected”); if(non_clickable.length){ // setToMiddle(currentText, 200); ; } else { var clickable = currentText.filter(“p, a, span.quiz, span.answer”).first(); if(clickable.prop(“tagName”) === “SPAN”){ clickable.click(); } else if(clickable.prop(“tagName”) === “A”){ window.open(clickable.attr(“href”), ‘link window’, ‘width=800, height=1000’); return false; }else{ var fig = clickable.find(“figure img”); if(fig){ clickable.find(“figure img”).click(); } } } // P } else if(kc === 80){ if(quiz_all_answered){ $(“span.answer”).toggleClass(“answer”).toggleClass(“quiz”); $(“li, pre, blockquote, p, dt, h1, h2, h3, h4, h5, h6, div.line-block”).removeClass(“printing”) quiz_all_answered = false; } else { $(“span.quiz”).toggleClass(“quiz”).toggleClass(“answer”); $(“li, pre, blockquote, p, dt, h1, h2, h3, h4, h5, h6, div.line-block”).addClass(“printing”); quiz_all_answered = true; } setToTop(); // SPACE or RIGHT } else if(kc === 32 || kc == 39){ // reset selection allText.removeClass(“selected”); // large images are normalized first $(“figure[large=‘true’] img”).click();</p>
+<pre><code>  var cal = $(allText[currentNum]);
+  // if current_text is quiz
+  if(cal.filter(&quot;span.quiz.current&quot;).length){
+    cal.click();
+    return false;
+  }
+  currentNum = currentNum + 1;
+  if(currentNum &lt; allText.length) {
+    moveCursor(currentNum, &quot;down&quot;);
+    var reg_element = $(allText[currentNum]).toggleClass(&quot;selected&quot;);
+    if(![&quot;SPAN&quot;].includes(reg_element.prop(&quot;tagName&quot;))){
+      setToMiddle(reg_element, 200);
+    }
+  } else {
+    currentNum = currentNum - 1;
+  }
+  return false;
+}</code></pre>
+<p>});</p>
+<p>var bottom_padding = ($(window).height() - $(allText[-1]).height()) / 2; $(“body”).css(“margin-bottom”, parseInt(bottom_padding) + “px”);</p>
+<p>});</p>
+</body>
+</html>

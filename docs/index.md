@@ -196,11 +196,11 @@ Lorem ipsum dolor sit [amet]{.quiz}, consectetur [adipiscing]{.quiz} elit, sed d
 
 : Move cursor to next element, focus it, and set it to middle of screen
 
-`PAGEUP` / `HOME`
+`HOME`
 
 : Move to top
 
-`PAGEDOWN` / `END`
+`END`
 
 : Move to end
 

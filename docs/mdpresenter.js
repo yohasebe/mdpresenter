@@ -170,20 +170,36 @@ $(document).ready(function(){
     viewport.right = viewport.left + win.width();
     viewport.bottom = viewport.top + win.height();
     var bounds = this.offset();
-    bounds.right = bounds.left + this.outerWidth();
-    bounds.bottom = bounds.top + this.outerHeight();
-    var height = bounds.bottom - bounds.top;
-    var width = bounds.right - bounds.left;
+    try {
+      bounds.right = bounds.left + this.outerWidth();
+      bounds.bottom = bounds.top + this.outerHeight();
+      var height = bounds.bottom - bounds.top;
+      var width = bounds.right - bounds.left;
+    } catch(e) {
+      return false;
+    }
     return (!(viewport.right < bounds.left + width || viewport.left > bounds.right - width || viewport.bottom - bottomMargin < bounds.top + height || viewport.top > bounds.bottom - height));
   };
 
-  function setToTop(){
-    moveCursor(0);
-    $(allText[0]).addClass("selected");
+  var currentNum = 0;
+
+  function toHome(){
+    currentNum = 0;
+    $(".current").removeClass("current");
+    $(".selected").removeClass("selected");
+    moveCursor(currentNum);;
+    $(allText[currentNum]).addClass("current").addClass("selected");
   }
 
-  var currentNum = 0;
-  setToTop(0);
+  function toEnd(){
+    currentNum = allText.length - 1
+    $(".current").removeClass("current");
+    $(".selected").removeClass("selected");
+    moveCursor(currentNum);;
+    $(allText[currentNum]).addClass("current").addClass("selected");
+  }
+
+  toHome();
 
   var quiz_all_answered = false;
   $(window).keydown(function(e){
@@ -208,14 +224,12 @@ $(document).ready(function(){
       } else {
         currentNum = currentNum + 1;
       }
-      // END or PAGEDOWN
-    } else if(kc === 35 || kc === 34){ 
-      currentNum = allText.length - 1
-      moveCursor(currentNum);
-      // HOME or PAGEUP
-    } else if(kc === 36 || kc === 33){ 
-      currentNum = 0
-      moveCursor(currentNum);
+      // END
+    } else if(kc === 39){ 
+      toEnd();
+      // HOME
+    } else if(kc === 37){ 
+      toHome();
       // DOT(.) or ENTER
     } else if(kc === 190 || kc === 13){
       var currentText = $(allText[currentNum]);
@@ -224,7 +238,6 @@ $(document).ready(function(){
                                             .filter(":not('a')")
                                             .toggleClass("selected");
       if(non_clickable.length){
-        // setToMiddle(currentText, 200);
         ;
       } else {
         var clickable = currentText.filter("p, a, span.quiz, span.answer").first();
