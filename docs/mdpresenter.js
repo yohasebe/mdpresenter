@@ -184,18 +184,20 @@ $(document).ready(function(){
   var currentNum = 0;
 
   function toHome(){
+    console.log("tohome");
     currentNum = 0;
     $(".current").removeClass("current");
     $(".selected").removeClass("selected");
-    moveCursor(currentNum);;
+    moveCursor(currentNum);
     $(allText[currentNum]).addClass("current").addClass("selected");
   }
 
   function toEnd(){
+    console.log("toend");
     currentNum = allText.length - 1
     $(".current").removeClass("current");
     $(".selected").removeClass("selected");
-    moveCursor(currentNum);;
+    moveCursor(currentNum);
     $(allText[currentNum]).addClass("current").addClass("selected");
   }
 
@@ -225,10 +227,10 @@ $(document).ready(function(){
         currentNum = currentNum + 1;
       }
       // END
-    } else if(kc === 39){ 
+    } else if(kc === 35){ 
       toEnd();
       // HOME
-    } else if(kc === 37){ 
+    } else if(kc === 36){ 
       toHome();
       // DOT(.) or ENTER
     } else if(kc === 190 || kc === 13){
