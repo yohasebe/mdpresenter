@@ -131,7 +131,7 @@ $(document).ready(function(){
     if(current >= 0 && currentText.isOnScreen() == false){
       if(direction === "down"){
         setToBottom(currentText, duration);
-      } else if("top") {
+      } else if(direction === "top") {
         setToTop(currentText, duration);
       } 
     }
