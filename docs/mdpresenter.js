@@ -139,8 +139,8 @@ $(document).ready(function(){
 
   $("p:not(blockquote *, dl *, dd *, li *), dt, li:not(table *), a:not(:has(img)), h1, h2, h3, h4, h5, h6, blockquote, pre, div.line-block").on("click", function(){
     $(".selected").removeClass("selected");
-    currentNum = allText.index($(this));
-    moveCursor(currentNum);
+    // currentNum = allText.index($(this));
+    // moveCursor(currentNum);
   });
 
   function setToTop(currentText, duration){
