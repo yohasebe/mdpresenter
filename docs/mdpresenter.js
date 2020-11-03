@@ -131,17 +131,16 @@ $(document).ready(function(){
     if(current >= 0 && currentText.isOnScreen() == false){
       if(direction === "down"){
         setToBottom(currentText, duration);
-      } else {
+      } else if("top") {
         setToTop(currentText, duration);
-      }
+      } 
     }
   }
 
   $("p:not(blockquote *, dl *, dd *, li *), dt, li:not(table *), a:not(:has(img)), h1, h2, h3, h4, h5, h6, blockquote, pre, div.line-block").on("click", function(){
     $(".selected").removeClass("selected");
-    // disable click & move items
-    // currentNum = allText.index($(this));
-    // moveCursor(currentNum);
+    currentNum = allText.index($(this));
+    moveCursor(currentNum, "nothing");
   });
 
   function setToTop(currentText, duration){
