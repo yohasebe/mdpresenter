@@ -201,7 +201,7 @@ $(document).ready(function(){
 
   toHome();
 
-  var quiz_all_answered = false;
+  var quiz_all_answered = true;
   $(window).keydown(function(e){
     var kc = e.keyCode;
     // J or DOWN 
