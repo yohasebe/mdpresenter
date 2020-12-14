@@ -24,7 +24,7 @@ $(document).ready(function(){
 
   $("p, dt, li, h1, h2, h3, h4, h5, h6, div.line-block").each(function(){
     var text = $(this).html();
-    $(this).html(text.replace(/\{([^\{\}]+?)\}/g, "<span class='quiz'>$1</span>"));
+    // $(this).html(text.replace(/\{([^\{\}]+?)\}/g, "<span class='quiz'>$1</span>"));
   }); 
 
   $("span.quiz").on("click", function(){
