@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>MD Presenter</title>
+  <title>index</title>
   <style>
     html {
       line-height: 1.5;
@@ -147,25 +147,29 @@
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
-  <link rel="stylesheet" href="https://yohasebe.github.io/mdpresenter/mdpresenter.css?ts=20201227_170324">
+  <link rel="stylesheet" href="https://yohasebe.github.io/mdpresenter/mdpresenter.css?ts=20201227_195354">
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-  <script src="https://yohasebe.github.io/mdpresenter/mdpresenter.js?ts=20201227_170324"></script>
+  <script src="https://yohasebe.github.io/mdpresenter/mdpresenter.js?ts=20201227_195354"></script>
 </head>
 <body>
-<header id="title-block-header">
-<h1 class="title">MD Presenter</h1>
-<p class="subtitle">A Markdown Presentation Toolkit for Pandoc</p>
-<p class="author">Yoichiro Hasebe</p>
-<p class="date">December 27, 2020 (Work in Progress / Experimental Stage)</p>
-</header>
-<hr />
-<p><a href="https://yohasebe.github.io/mdpresenter" class="uri">https://yohasebe.github.io/mdpresenter</a></p>
+<h1 id="md-presenter">MD Presenter</h1>
+<h2 id="a-markdown-presentation-toolkit-for-pandoc">A Markdown Presentation Toolkit for Pandoc</h2>
+<h3 id="yoichiro-hasebe">Yoichiro Hasebe</h3>
+<p><strong><a href="https://github.com/yohasebe/mdpresenter" class="uri">https://github.com/yohasebe/mdpresenter</a></strong></p>
+<ul>
+<li>Press <code>ESC</code> to toggle between <strong>single-page</strong> mode and <strong>presentation</strong> mode</li>
+<li>Use <code>UP</code>/<code>DOWN</code> or <code>J</code>/<code>K</code> to go forward and backward in presentation mode</li>
+<li>Use <code>CTRL</code>/<code>CMD</code> + <code>+</code>/<code>-</code> to adjust zoom levels</li>
+</ul>
 <hr />
 <h2 id="block-types">Block Types</h2>
-<hr />
 <h3 id="paragraph">Paragraph</h3>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<hr />
+<h3 id="paragraph-with-quiz">Paragraph with Quiz</h3>
+<p>Press <code>Enter</code> or <code>DOT (.)</code> to reveal answers.</p>
+<p>Lorem ipsum dolor sit <span class="quiz">amet</span>, consectetur <span class="quiz">adipiscing</span> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad <span class="quiz">minim</span> veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <span class="quiz">Duis</span> aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est <span class="quiz">laborum</span>.</p>
 <hr />
 <h3 id="unordered-list">Unordered List</h3>
 <ul>
@@ -175,20 +179,20 @@
 <li>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
 </ul>
 <hr />
-<h3 id="list-items-having-urls">List items having URLs</h3>
+<h3 id="list-items-with-urls">List Items with URLs</h3>
+<p>Press <code>Enter</code> to access sites.</p>
 <ul>
-<li><a href="">Link List 1</a></li>
-<li><a href="">Link List 2</a></li>
-<li><a href="">Link List 3</a></li>
+<li><a href="https://google.com">Google</a></li>
+<li><a href="https://github.com">Github</a></li>
+<li><a href="https://twitter.com">Twitter</a></li>
 </ul>
 <hr />
 <h3 id="ordered-list">Ordered List</h3>
 <p>From 1 to 3</p>
 <ol type="1">
-<li><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></li>
-<li><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></li>
-<li><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></li>
+<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+<li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</li>
 </ol>
 <p>From A to B</p>
 <ol type="A">
@@ -197,8 +201,7 @@
 <li>ghi</li>
 </ol>
 <hr />
-<h3 id="list-inside-list">List inside list</h3>
-<p>1 to 2</p>
+<h3 id="list-inside-list">List Inside List</h3>
 <ol type="1">
 <li><ul>
 <li>Lorem ipsum dolor sit amet</li>
@@ -211,7 +214,8 @@
 <li>Lorem ipsum dolor sit amet</li>
 </ul></li>
 </ol>
-<p>98 to 99</p>
+<hr />
+<h3 id="arbitrarily-numbered-list">Arbitrarily Numbered List</h3>
 <ol start="98" type="1">
 <li><ol type="a">
 <li>Lorem ipsum dolor sit amet</li>
@@ -247,6 +251,7 @@ Duis aute irure dolor in reprehenderit<br />
 Excepteur sint occaecat cupidatat non proident</div>
 <hr />
 <h3 id="image">Image</h3>
+<p>Press <code>Enter</code> to expand images.</p>
 <figure>
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Louvre_Museum_Wikimedia_Commons.jpg/1200px-Louvre_Museum_Wikimedia_Commons.jpg" alt="Picture: Louvre" /><figcaption aria-hidden="true">Picture: Louvre</figcaption>
 </figure>
@@ -280,61 +285,12 @@ Excepteur sint occaecat cupidatat non proident</div>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </blockquote>
 <hr />
-<h3 id="quiz">Quiz</h3>
-<p>Lorem ipsum dolor sit <span class="quiz">amet</span>, consectetur <span class="quiz">adipiscing</span> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad <span class="quiz">minim</span> veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <span class="quiz">Duis</span> aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est <span class="quiz">laborum</span>.</p>
-<hr />
-<h1 id="heading-1">Heading 1</h1>
-<h2 id="heading-2">Heading 2</h2>
-<h3 id="heading-3">Heading 3</h3>
-<h4 id="heading-4">Heading 4</h4>
-<h5 id="heading-5">Heading 5</h5>
-<h6 id="heading-6">Heading 6</h6>
-<hr />
-<h2 id="browser-shortcuts">Browser Shortcuts</h2>
-<h4 id="zoom-screen">Zoom Screen</h4>
-<dl>
-<dt><code>F11</code> / <code>CTRL and COMMAND and F</code></dt>
-<dd><p>Toggle fullscreen mode</p>
-</dd>
-<dt><code>CTRL +</code> / <code>COMMAND and +</code></dt>
-<dd><p>Zoom screen</p>
-</dd>
-<dt><code>CTRL -</code> / <code>COMMAND -</code></dt>
-<dd><p>Zoom out screen</p>
-</dd>
-<dt><code>CTRL 0</code> / <code>COMMAND 0</code></dt>
-<dd><p>Reset to default</p>
-</dd>
-</dl>
-<hr />
-<h2 id="keybindings">Keybindings</h2>
-<dl>
-<dt><code>DOWN</code> / <code>J</code> / <code>SPACE</code></dt>
-<dd><p>Move cursor down</p>
-</dd>
-<dt><code>UP</code> / <code>K</code></dt>
-<dd><p>Move cursor up</p>
-</dd>
-<dt><code>ENTER</code> / <code>DOT (.)</code></dt>
-<dd><p>Focus/defocus current element</p>
-</dd>
-</dl>
-<ul>
-<li>Focusing a link = open a new window and access the link</li>
-<li>Focusing an image = Expand the image</li>
-<li>Focusing a quiz element = show the answer key</li>
-</ul>
-<dl>
-<dt><code>HOME</code></dt>
-<dd><p>Move to top</p>
-</dd>
-<dt><code>END</code></dt>
-<dd><p>Move to end</p>
-</dd>
-<dt><code>ESC</code></dt>
-<dd><p>Show all the quiz answer keys and disable shading (for printing or exporting the document)</p>
-</dd>
-</dl>
+<h3 id="headings">Headings</h3>
+<h1 id="heading-level-1">Heading Level 1</h1>
+<h2 id="heading-level-2">Heading Level 2</h2>
+<h3 id="heading-level-3">Heading Level 3</h3>
+<h4 id="heading-level-4">Heading Level 4</h4>
+<h5 id="heading-level-5">Heading Level 5</h5>
 <hr />
 </body>
 </html>

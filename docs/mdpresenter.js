@@ -2,7 +2,6 @@ $(window).on("load", function(){
 
   var bodyHtml = $("body").html();
   var divs = "<div class='psections'>";
-  $("body").css("margin-bottom", parseInt(bottom_padding) + "px");
   bodyHtml.split('<hr>').forEach(function(elem, i){
     if(elem == null || elem.trim()== ''){
       return;
@@ -11,10 +10,9 @@ $(window).on("load", function(){
     }
   });
   divs = divs + "</div>";
-  console.log(divs);
   $("body").html(divs);
   $(".psection").last().append('<p><i>End of document</i></p>')
-  
+
   $("table").each(function(){
     $(this).wrap("<p><p>");
     $(this).wrap("<div class='table'><div>");
@@ -40,7 +38,7 @@ $(window).on("load", function(){
 
   $("p, dt, li, h1, h2, h3, h4, h5, h6, div.line-block").each(function(){
     var text = $(this).html();
-  }); 
+  });
 
   $("span.quiz").on("click", function(){
     $(this).toggleClass("quiz").toggleClass("answer");
@@ -74,11 +72,11 @@ $(window).on("load", function(){
     if(figure.attr("large") !== "true"){
       orgWidth  = targetImg.width;
       orgHeight = targetImg.height;
-      targetImg.width = windowWidth * 0.75;  
-      targetImg.height = orgHeight * (targetImg.width / orgWidth); 
+      targetImg.width = windowWidth * 0.75;
+      targetImg.height = orgHeight * (targetImg.width / orgWidth);
 
       if(targetImg.height > windowHeight){
-        targetImg.height = windowHeight * 0.75; 
+        targetImg.height = windowHeight * 0.75;
         targetImg.width = orgWidth * (targetImg.height / orgHeight);
       }
 
@@ -101,8 +99,8 @@ $(window).on("load", function(){
       return false;
 
     } else {
-      targetImg.width = orgWidth; 
-      targetImg.height = orgHeight; 
+      targetImg.width = orgWidth;
+      targetImg.height = orgHeight;
 
       figure.css("padding-top", orgPaddingTop).css("padding-bottom", orgPaddingBottom);
 
@@ -120,19 +118,15 @@ $(window).on("load", function(){
     }
   });
 
-  // window.addEventListener("resize", function(){
-  //   location.reload();
-  // }); 
-
   var allText = $("p:not(blockquote *, dl *, dd *, li *), dt, li:not(table *, :has(ul), :has(ol)), a:not(:has(img)), h1, h2, h3, h4, h5, h6, blockquote, pre, div.line-block, span.quiz");
 
   var topMargin = 50;
   var bottomMargin = 50;
   var duration = 0;
-  var quiz_all_answered = false;
+  var in_page_mode = true
 
   var last_parent = "";
-  
+
   function moveCursor(current, direction = "top"){
     allText.removeClass("current");
     $(".parental").removeClass("parental");
@@ -140,7 +134,7 @@ $(window).on("load", function(){
     currentText.addClass("current");
 
     startOfSection = false;
-    var parent = currentText.closest('.psection'); 
+    var parent = currentText.closest('.psection');
     if (!last_parent){
       startOfSection = true;
       last_parent = parent.attr("id");
@@ -155,7 +149,7 @@ $(window).on("load", function(){
       currentText.next().children().addClass("parental")
     }
 
-    if(quiz_all_answered){
+    if(in_page_mode){
       setToMiddle(currentText, duration);
     }else{
       if(startOfSection && direction === "down"){
@@ -174,7 +168,7 @@ $(window).on("load", function(){
           setToBottom(currentText, duration);
         } else if(direction === "top" && currentText.isOnScreen() == false) {
           setToTop(currentText, duration);
-        } 
+        }
       }
     }
   }
@@ -263,7 +257,6 @@ $(window).on("load", function(){
     }
   }
 
-
   $(window).keydown(function(e){
     var kc = e.keyCode;
     // J or DOWN or RIGHT or SPACE
@@ -277,12 +270,12 @@ $(window).on("load", function(){
       e.preventDefault();
       e.stopPropagation()
     // END
-    } else if(kc === 35){ 
+    } else if(kc === 35){
       toEnd();
       e.preventDefault();
       e.stopPropagation()
     // HOME
-    } else if(kc === 36){ 
+    } else if(kc === 36){
       toHome();
       e.preventDefault();
       e.stopPropagation()
@@ -312,12 +305,12 @@ $(window).on("load", function(){
       e.preventDefault();
       e.stopPropagation()
     // ESC
-    } else if(kc === 27){ 
+    } else if(kc === 27){
       var currentText = $(allText[currentNum]);
-      if(quiz_all_answered){
+      if(in_page_mode){
         $("span.answer").toggleClass("answer").toggleClass("quiz");
         $("li, pre, blockquote, p, dt, h1, h2, h3, h4, h5, h6, div.line-block").removeClass("printing")
-        quiz_all_answered = false;
+        in_page_mode = false;
         $(".psection").hide();
         var parent = currentText.parents('.psection').first();
         parent.show();
@@ -325,7 +318,7 @@ $(window).on("load", function(){
       } else {
         $("span.quiz").toggleClass("quiz").toggleClass("answer");
         $("li, pre, blockquote, p, dt, h1, h2, h3, h4, h5, h6, div.line-block").addClass("printing");
-        quiz_all_answered = true;
+        in_page_mode = true;
         $(".psection").show();
         setToMiddle(currentText, duration);
         $("hr").show();
@@ -344,17 +337,12 @@ $(window).on("load", function(){
       var delta = e.originalEvent.deltaY;
       if (delta > 0) {
         goDown();
-      } else { 
+      } else {
         goUp();
       }
       wheelActionLoading = false;
     }
   });
 
-  var bottom_padding = ($(window).height() - $(allText[-1]).height()) / 2;
-  $("body").css("margin-bottom", parseInt(bottom_padding) + "px");
-  $(".psection").slice(1).hide();
-  $("hr").hide();
   toHome();
-
 });
