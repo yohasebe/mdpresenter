@@ -122,6 +122,7 @@ $(document).ready(function(){
   var topMargin = 50;
   var bottomMargin = 50;
   var duration = 0;
+  var quiz_all_answered = false;
 
   function moveCursor(current, direction = "top"){
 
@@ -142,20 +143,24 @@ $(document).ready(function(){
       currentText.next().children().addClass("parental")
     }
 
-    if(startOfSection && direction === "down"){
-      $(".psection").hide();
-      parent.show();
-      setToTop(currentText, duration);
-    } else if(direction === "top"){
-      $(".psection").hide();
-      parent.show();
-      setToBottom(currentText, duration);
-    } else if(current >= 0 && currentText.isOnScreen() == false) {
-      if(direction === "down"){
-        setToBottom(currentText, duration);
-      } else if(direction === "top") {
+    if(quiz_all_answered){
+      setToMiddle(currentText, duration);
+    }else{
+      if(startOfSection && direction === "down"){
+        $(".psection").hide();
+        parent.show();
         setToTop(currentText, duration);
-      } 
+      } else if(direction === "top"){
+        $(".psection").hide();
+        parent.show();
+        setToBottom(currentText, duration);
+      } else if(current >= 0 && currentText.isOnScreen() == false) {
+        if(direction === "down"){
+          setToBottom(currentText, duration);
+        } else if(direction === "top") {
+          setToTop(currentText, duration);
+        } 
+      }
     }
   }
 
@@ -221,38 +226,49 @@ $(document).ready(function(){
     $(allText[currentNum]).addClass("current").addClass("selected");
   }
 
+  function goDown(){
+    currentNum = currentNum + 1;
+    if(currentNum < allText.length) {
+      allText.removeClass("selected");
+      moveCursor(currentNum, "down");
+      return false;
+    } else {
+      currentNum = currentNum - 1;
+    }
+  }
+
+  function goUp(){
+    currentNum = currentNum - 1;
+    if(currentNum >= 0) {
+      allText.removeClass("selected");
+      moveCursor(currentNum);
+      return false;
+    } else {
+      currentNum = currentNum + 1;
+    }
+  }
+
   toHome();
 
-  var quiz_all_answered = false;
   $(window).keydown(function(e){
     var kc = e.keyCode;
-    // J or DOWN or SPACE
-    if(kc === 74 || kc === 40 || kc === 32){
-      currentNum = currentNum + 1;
-      if(currentNum < allText.length) {
-        allText.removeClass("selected");
-        moveCursor(currentNum, "down");
-        return false;
-      } else {
-        currentNum = currentNum - 1;
-      }
-      // K or UP or LEFT
+    // J or DOWN or RIGHT or SPACE
+    if(kc === 74 || kc === 40 || kc ===39 || kc === 32){
+      goDown();
+      e.preventDefault();
+    // K or UP or LEFT
     } else if(kc === 75 || kc === 38 || kc == 37){
-      currentNum = currentNum - 1;
-      if(currentNum >= 0) {
-        allText.removeClass("selected");
-        moveCursor(currentNum);
-        return false;
-      } else {
-        currentNum = currentNum + 1;
-      }
-      // END
+      goUp();
+      e.preventDefault();
+    // END
     } else if(kc === 35){ 
       toEnd();
-      // HOME
+      e.preventDefault();
+    // HOME
     } else if(kc === 36){ 
       toHome();
-      // DOT(.) or ENTER
+      e.preventDefault();
+    // DOT(.) or ENTER
     } else if(kc === 190 || kc === 13){
       var currentText = $(allText[currentNum]);
       var non_clickable = $(allText[currentNum]).filter(":not(:has(figure))")
@@ -275,42 +291,26 @@ $(document).ready(function(){
           }
         }
       }
-      // ESC
+      e.preventDefault();
+    // ESC
     } else if(kc === 27){ 
+      var currentText = $(allText[currentNum]);
       if(quiz_all_answered){
         $("span.answer").toggleClass("answer").toggleClass("quiz");
         $("li, pre, blockquote, p, dt, h1, h2, h3, h4, h5, h6, div.line-block").removeClass("printing")
         quiz_all_answered = false;
+        $(".psection").hide();
+        var parent = currentText.parents('.psection').first();
+        parent.show();
       } else {
         $("span.quiz").toggleClass("quiz").toggleClass("answer");
         $("li, pre, blockquote, p, dt, h1, h2, h3, h4, h5, h6, div.line-block").addClass("printing");
         quiz_all_answered = true;
+        $(".psection").show();
+        setToMiddle(currentText, duration);
       }
       setToTop();
-      // // SPACE or RIGHT
-    // } else if(kc === 32 || kc == 39){ 
-      // // reset selection
-      // allText.removeClass("selected");
-      // // large images are normalized first
-      // $("figure[large='true'] img").click();
-
-      // var cal = $(allText[currentNum]);
-      // // if current_text is quiz
-      // if(cal.filter("span.quiz.current").length){
-      //   cal.click();
-      //   return false;
-      // }
-      // currentNum = currentNum + 1;
-      // if(currentNum < allText.length) {
-      //   moveCursor(currentNum, "down");
-      //   var reg_element = $(allText[currentNum]).toggleClass("selected");
-      //   if(!["SPAN"].includes(reg_element.prop("tagName"))){
-      //     setToMiddle(reg_element, 200);
-      //   }
-      // } else {
-      //   currentNum = currentNum - 1;
-      // }
-      // return false;
+      e.preventDefault();
     }
   });
 
@@ -320,4 +320,18 @@ $(document).ready(function(){
   $(".psection").first().show();
   $("hr").hide();
 
+  var wheelActionLoading = false;
+  $(window).on('wheel', function(e) {
+    const isScrollingDown = Math.sign(e.wheelDeltaY);
+    if(!wheelActionLoading){
+      wheelActionLoading = true;
+      var delta = e.originalEvent.deltaY;
+      if (delta > 0) {
+        goDown();
+      } else { 
+        goUp();
+      }
+      wheelActionLoading = false;
+    }
+  });
 });

@@ -1,7 +1,7 @@
 title: MD Presenter
 subtitle: A Markdown Presentation Toolkit for Pandoc
 author: Yoichiro Hasebe
-date: October 10, 2020 (Work in Progress / Experimental Stage)
+date: December 27, 2020 (Work in Progress / Experimental Stage)
 
 ----
 
