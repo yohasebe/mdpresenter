@@ -2,7 +2,7 @@
 
 A Markdown Interactive Presentation Tool for Pandoc 
 
-**IMPORTANT:** This software is in a very early experimental stage
+**IMPORTANT:** This software is in a very early experimental stage of development
 
 ## What's This?
 
@@ -23,11 +23,13 @@ brew install pandoc
 
 ## Downloads
 
-No download necessary. Include MD Presenter loading script URL when running Pandoc to convert MD to HTML.
+No download necessary. Just include MD Presenter loading script when running Pandoc to convert MD to HTML as instructed below.
 
 ## Usage
 
-1. Create a Markdown document `INPUT.md` with sections/pages separated by `---`.
+Names of input/output files can be altered as you like.
+
+1. Create a Markdown document `INPUT.md` with sections/pages separated by `---`. 
 2. Convert the document using Pandoc with MD Presenter loading script html as shown below.
 3. Open `OUTPUT.html`
 4. Adjust screen zoom level
@@ -56,7 +58,7 @@ pandoc -f markdown+mmd_title_block -t html -s \
 
 | Key | Function |
 |-----|----------|
-|`F11`/`CTRL and COMMAND and F`|Toggle fullscreen mode|
+|`F11` or `CTRL`/`CMD` + `F`|Toggle fullscreen mode|
 |`CTRL`/`CMD` + `+`|Zoom in|
 |`CTRL`/`CMD` + `-`|Zoom out|
 |`CTRL`/`CMD` + `0`|Reset to default zoom level|

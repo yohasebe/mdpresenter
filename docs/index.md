@@ -1,6 +1,6 @@
 # MD Presenter
 
-## A Markdown Presentation Toolkit for Pandoc
+## A Markdown Presentation Tool for Pandoc
 
 #### Yoichiro Hasebe
 
