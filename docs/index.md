@@ -2,11 +2,12 @@
 
 ## A Markdown Presentation Toolkit for Pandoc
 
-### Yoichiro Hasebe
+#### Yoichiro Hasebe
 
 **<https://github.com/yohasebe/mdpresenter>**
 
-- Press `ESC` to toggle between **single-page** mode and **presentation** mode
+- Press `ESC` to toggle between <u>single-page</u> mode and <u>presentation</u> mode
+- Press `ENTER` to highlight/focus the current element
 - Use `UP`/`DOWN` or `J`/`K` to go forward and backward in presentation mode
 - Use `CTRL`/`CMD` + `+`/`-` to adjust zoom levels
 
@@ -123,7 +124,7 @@ div.line-block{
 
 ### Image
 
-Press `Enter` to expand images.
+Press `Enter` to expand/shrink images.
 
 ![Picture: Louvre](https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Louvre_Museum_Wikimedia_Commons.jpg/1200px-Louvre_Museum_Wikimedia_Commons.jpg)
 
