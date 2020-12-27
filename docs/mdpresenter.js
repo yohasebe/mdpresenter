@@ -117,7 +117,8 @@ $(window).on("load", function(){
   //   location.reload();
   // }); 
 
-  var allText = $("p:not(blockquote *, dl *, dd *, li *), dt, li:not(table *, :has(ul), :has(ol)), a:not(:has(img)), h1, h2, h3, h4, h5, h6, blockquote, pre, dt, div.line-block, span.quiz");
+  $('.psection:empty').remove();
+  var allText = $("p:not(blockquote *, dl *, dd *, li *), dt, li:not(table *, :has(ul), :has(ol)), a:not(:has(img)), h1, h2, h3, h4, h5, h6, blockquote, pre, div.line-block, span.quiz");
 
   var topMargin = 50;
   var bottomMargin = 50;
@@ -125,7 +126,6 @@ $(window).on("load", function(){
   var quiz_all_answered = false;
 
   function moveCursor(current, direction = "top"){
-
     allText.removeClass("current");
     $(".parental").removeClass("parental");
     var currentText = $(allText[current]);
