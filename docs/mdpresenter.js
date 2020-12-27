@@ -4,7 +4,10 @@ $(window).on("load", function(){
   var divs = "<div class='psections'>";
   $("body").css("margin-bottom", parseInt(bottom_padding) + "px");
   bodyHtml.split('<hr>').forEach(function(elem, i){
-    if($(elem).children().length > 0){
+    if (i == 0 && !$(elem).has("header")){
+      return;
+    }
+    if(elem){
       divs = divs + '<div class="psection" id="ps' + i + '">' + elem + '</div>';
     }
   });
