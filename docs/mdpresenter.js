@@ -248,8 +248,6 @@ $(window).on("load", function(){
     }
   }
 
-  toHome();
-
   $(window).keydown(function(e){
     var kc = e.keyCode;
     // J or DOWN or RIGHT or SPACE
