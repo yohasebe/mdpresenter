@@ -7,7 +7,7 @@ $(window).on("load", function(){
   });
   $("body").html(divs);
   $(".psection").last().append('<p><i>end of document</i></p>')
-
+  
   $("table").each(function(){
     $(this).wrap("<p><p>");
     $(this).wrap("<div class='table'><div>");
@@ -33,7 +33,7 @@ $(window).on("load", function(){
 
   $("p, dt, li, h1, h2, h3, h4, h5, h6, div.line-block").each(function(){
     var text = $(this).html();
-  });
+  }); 
 
   $("span.quiz").on("click", function(){
     $(this).toggleClass("quiz").toggleClass("answer");
@@ -67,11 +67,11 @@ $(window).on("load", function(){
     if(figure.attr("large") !== "true"){
       orgWidth  = targetImg.width;
       orgHeight = targetImg.height;
-      targetImg.width = windowWidth * 0.75;
-      targetImg.height = orgHeight * (targetImg.width / orgWidth);
+      targetImg.width = windowWidth * 0.75;  
+      targetImg.height = orgHeight * (targetImg.width / orgWidth); 
 
       if(targetImg.height > windowHeight){
-        targetImg.height = windowHeight * 0.85;
+        targetImg.height = windowHeight * 0.85; 
         targetImg.width = orgWidth * (targetImg.height / orgHeight);
       }
 
@@ -94,8 +94,8 @@ $(window).on("load", function(){
       return false;
 
     } else {
-      targetImg.width = orgWidth;
-      targetImg.height = orgHeight;
+      targetImg.width = orgWidth; 
+      targetImg.height = orgHeight; 
 
       figure.css("padding-top", orgPaddingTop).css("padding-bottom", orgPaddingBottom);
 
@@ -115,7 +115,7 @@ $(window).on("load", function(){
 
   // window.addEventListener("resize", function(){
   //   location.reload();
-  // });
+  // }); 
 
   var allText = $("p:not(blockquote *, dl *, dd *, li *), dt, li:not(table *, :has(ul), :has(ol)), a:not(:has(img)), h1, h2, h3, h4, h5, h6, blockquote, pre, dt, div.line-block, span.quiz");
 
@@ -132,7 +132,7 @@ $(window).on("load", function(){
     currentText.addClass("current");
 
     startOfSection = false;
-    var parent = currentText.parents('.psection').first();
+    var parent = currentText.parents('.psection').first(); 
     if(parent.children().first().hasClass("current")){
       startOfSection = true;
     }
@@ -159,7 +159,7 @@ $(window).on("load", function(){
           setToBottom(currentText, duration);
         } else if(direction === "top") {
           setToTop(currentText, duration);
-        }
+        } 
       }
     }
   }
@@ -261,11 +261,11 @@ $(window).on("load", function(){
       goUp();
       e.preventDefault();
     // END
-    } else if(kc === 35){
+    } else if(kc === 35){ 
       toEnd();
       e.preventDefault();
     // HOME
-    } else if(kc === 36){
+    } else if(kc === 36){ 
       toHome();
       e.preventDefault();
     // DOT(.) or ENTER
@@ -293,7 +293,7 @@ $(window).on("load", function(){
       }
       e.preventDefault();
     // ESC
-    } else if(kc === 27){
+    } else if(kc === 27){ 
       var currentText = $(allText[currentNum]);
       if(quiz_all_answered){
         $("span.answer").toggleClass("answer").toggleClass("quiz");
@@ -320,18 +320,18 @@ $(window).on("load", function(){
   $(".psection").first().show();
   $("hr").hide();
 
-  // var wheelActionLoading = false;
-  // $(window).on('wheel', function(e) {
-  //   const isScrollingDown = Math.sign(e.wheelDeltaY);
-  //   if(!wheelActionLoading){
-  //     wheelActionLoading = true;
-  //     var delta = e.originalEvent.deltaY;
-  //     if (delta > 0) {
-  //       goDown();
-  //     } else {
-  //       goUp();
-  //     }
-  //     wheelActionLoading = false;
-  //   }
-  // });
+  var wheelActionLoading = false;
+  $(window).on('wheel', function(e) {
+    const isScrollingDown = Math.sign(e.wheelDeltaY);
+    if(!wheelActionLoading){
+      wheelActionLoading = true;
+      var delta = e.originalEvent.deltaY;
+      if (delta > 0) {
+        goDown();
+      } else { 
+        goUp();
+      }
+      wheelActionLoading = false;
+    }
+  });
 });
