@@ -3,7 +3,9 @@ $(window).on("load", function(){
   var bodyHtml = $("body").html();
   var divs = "<div class='psections'>";
   bodyHtml.split('<hr>').forEach(function(elem){
-    divs = divs + '<div class="psection">' + elem + '</div>';
+    if(elem){
+      divs = divs + '<div class="psection">' + elem + '</div>';
+    }
   });
   $("body").html(divs);
   $(".psection").last().append('<p><i>end of document</i></p>')
@@ -117,7 +119,6 @@ $(window).on("load", function(){
   //   location.reload();
   // }); 
 
-  $('.psection:empty').remove();
   var allText = $("p:not(blockquote *, dl *, dd *, li *), dt, li:not(table *, :has(ul), :has(ol)), a:not(:has(img)), h1, h2, h3, h4, h5, h6, blockquote, pre, div.line-block, span.quiz");
 
   var topMargin = 50;
@@ -258,18 +259,22 @@ $(window).on("load", function(){
     if(kc === 74 || kc === 40 || kc ===39 || kc === 32){
       goDown();
       e.preventDefault();
+      e.stopPropagation()
     // K or UP or LEFT
     } else if(kc === 75 || kc === 38 || kc == 37){
       goUp();
       e.preventDefault();
+      e.stopPropagation()
     // END
     } else if(kc === 35){ 
       toEnd();
       e.preventDefault();
+      e.stopPropagation()
     // HOME
     } else if(kc === 36){ 
       toHome();
       e.preventDefault();
+      e.stopPropagation()
     // DOT(.) or ENTER
     } else if(kc === 190 || kc === 13){
       var currentText = $(allText[currentNum]);
@@ -294,6 +299,7 @@ $(window).on("load", function(){
         }
       }
       e.preventDefault();
+      e.stopPropagation()
     // ESC
     } else if(kc === 27){ 
       var currentText = $(allText[currentNum]);
@@ -313,6 +319,7 @@ $(window).on("load", function(){
       }
       setToTop();
       e.preventDefault();
+      e.stopPropagation()
     }
   });
 
