@@ -2,9 +2,10 @@ $(window).on("load", function(){
 
   var bodyHtml = $("body").html();
   var divs = "<div class='psections'>";
-  bodyHtml.split('<hr>').forEach(function(elem){
+  $("body").css("margin-bottom", parseInt(bottom_padding) + "px");
+  bodyHtml.split('<hr>').forEach(function(elem, i){
     if(elem){
-      divs = divs + '<div class="psection">' + elem + '</div>';
+      divs = divs + '<div class="psection" id="ps' + i + '">' + elem + '</div>';
     }
   });
   $("body").html(divs);
@@ -126,7 +127,8 @@ $(window).on("load", function(){
   var duration = 0;
   var quiz_all_answered = false;
 
-  last_parent = "";
+  var last_parent = "";
+  
   function moveCursor(current, direction = "top"){
     allText.removeClass("current");
     $(".parental").removeClass("parental");
@@ -134,9 +136,13 @@ $(window).on("load", function(){
     currentText.addClass("current");
 
     startOfSection = false;
-    var parent = currentText.closest('.psection').first(); 
-    if (parent != last_parent){
+    var parent = currentText.closest('.psection'); 
+    if (!last_parent){
       startOfSection = true;
+      last_parent = parent.attr("id");
+    } else if (parent.attr("id") !== last_parent){
+      startOfSection = true;
+      last_parent = parent.attr("id");
     }
 
     if(["SPAN", "A"].includes(currentText.prop("tagName"))){
@@ -164,7 +170,6 @@ $(window).on("load", function(){
         } 
       }
     }
-    last_parent = parent;
   }
 
   $("p:not(blockquote *, dl *, dd *, li *), dt, li:not(table *), a:not(:has(img)), h1, h2, h3, h4, h5, h6, blockquote, pre, div.line-block").on("click", function(){
