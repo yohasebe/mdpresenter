@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
   /* font-weight: 600; */
   font-weight: bold;
   line-height: 1.1;
-  margin: 24px 0 16px;
+  margin: 16px 0 16px;
   padding:0
   color: #00587a;
 }
@@ -488,12 +488,15 @@ header {
   margin-bottom: 32px;
 }
 
-.current p, div.current, li.current{
+.current p, div.current, div.line-block.current, li.current{
   color: #222222;
 }
 
-
-div.psection {
-  /* padding-bottom: 25px; */
-  /* margin-bottom: 25px; */
-} 
+hr {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #ddd;
+  border: 0;
+  margin:15px;
+}

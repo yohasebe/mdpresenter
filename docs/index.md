@@ -210,3 +210,4 @@ Lorem ipsum dolor sit [amet]{.quiz}, consectetur [adipiscing]{.quiz} elit, sed d
 
 : Show all the quiz answer keys and disable shading (for printing or exporting the document)
 
+----

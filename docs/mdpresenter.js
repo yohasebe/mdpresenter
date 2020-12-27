@@ -7,13 +7,13 @@ $(window).on("load", function(){
     if(elem == null || elem.trim()== ''){
       return;
     } else {
-      divs = divs + '<div class="psection" id="ps' + i + '">' + elem + '</div>';
+      divs = divs + '<div class="psection" id="ps' + i + '">' + elem + '<hr /></div>';
     }
   });
   divs = divs + "</div>";
   console.log(divs);
   $("body").html(divs);
-  $(".psection").last().append('<p><i>end of document</i></p>')
+  $(".psection").last().append('<p><i>End of document</i></p>')
   
   $("table").each(function(){
     $(this).wrap("<p><p>");
@@ -78,7 +78,7 @@ $(window).on("load", function(){
       targetImg.height = orgHeight * (targetImg.width / orgWidth); 
 
       if(targetImg.height > windowHeight){
-        targetImg.height = windowHeight * 0.85; 
+        targetImg.height = windowHeight * 0.75; 
         targetImg.width = orgWidth * (targetImg.height / orgHeight);
       }
 
@@ -160,16 +160,19 @@ $(window).on("load", function(){
     }else{
       if(startOfSection && direction === "down"){
         $(".psection").hide();
-        parent.show();
+        parent.fadeIn(500);
         setToTop(currentText, duration);
       } else if(direction === "top"){
         $(".psection").hide();
         parent.show();
         setToBottom(currentText, duration);
-      } else if(current >= 0 && currentText.isOnScreen() == false) {
-        if(direction === "down"){
+      } else if(current >= 0) {
+        if(direction === "down" && currentText.isOnScreen() == false) {
+          if(["DT"].includes(currentText.prop("tagName"))){
+            currentText = currentText.next();
+          }
           setToBottom(currentText, duration);
-        } else if(direction === "top") {
+        } else if(direction === "top" && currentText.isOnScreen() == false) {
           setToTop(currentText, duration);
         } 
       }
@@ -260,7 +263,6 @@ $(window).on("load", function(){
     }
   }
 
-  toHome();
 
   $(window).keydown(function(e){
     var kc = e.keyCode;
@@ -319,23 +321,20 @@ $(window).on("load", function(){
         $(".psection").hide();
         var parent = currentText.parents('.psection').first();
         parent.show();
+        $("hr").hide();
       } else {
         $("span.quiz").toggleClass("quiz").toggleClass("answer");
         $("li, pre, blockquote, p, dt, h1, h2, h3, h4, h5, h6, div.line-block").addClass("printing");
         quiz_all_answered = true;
         $(".psection").show();
         setToMiddle(currentText, duration);
+        $("hr").show();
       }
       setToTop();
       e.preventDefault();
       e.stopPropagation()
     }
   });
-
-  var bottom_padding = ($(window).height() - $(allText[-1]).height()) / 2;
-  $("body").css("margin-bottom", parseInt(bottom_padding) + "px");
-  $(".psection").slice(1).hide();
-  $("hr").hide();
 
   var wheelActionLoading = false;
   $(window).on('wheel', function(e) {
@@ -351,4 +350,11 @@ $(window).on("load", function(){
       wheelActionLoading = false;
     }
   });
+
+  var bottom_padding = ($(window).height() - $(allText[-1]).height()) / 2;
+  $("body").css("margin-bottom", parseInt(bottom_padding) + "px");
+  $(".psection").slice(1).hide();
+  $("hr").hide();
+  toHome();
+
 });
