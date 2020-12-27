@@ -248,6 +248,8 @@ $(window).on("load", function(){
     }
   }
 
+  toHome();
+
   $(window).keydown(function(e){
     var kc = e.keyCode;
     // J or DOWN or RIGHT or SPACE
@@ -318,18 +320,18 @@ $(window).on("load", function(){
   $(".psection").first().show();
   $("hr").hide();
 
-  var wheelActionLoading = false;
-  $(window).on('wheel', function(e) {
-    const isScrollingDown = Math.sign(e.wheelDeltaY);
-    if(!wheelActionLoading){
-      wheelActionLoading = true;
-      var delta = e.originalEvent.deltaY;
-      if (delta > 0) {
-        goDown();
-      } else {
-        goUp();
-      }
-      wheelActionLoading = false;
-    }
-  });
+  // var wheelActionLoading = false;
+  // $(window).on('wheel', function(e) {
+  //   const isScrollingDown = Math.sign(e.wheelDeltaY);
+  //   if(!wheelActionLoading){
+  //     wheelActionLoading = true;
+  //     var delta = e.originalEvent.deltaY;
+  //     if (delta > 0) {
+  //       goDown();
+  //     } else {
+  //       goUp();
+  //     }
+  //     wheelActionLoading = false;
+  //   }
+  // });
 });
