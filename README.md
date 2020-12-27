@@ -1,6 +1,6 @@
 # MD Presenter
 
-A Markdown Presentation Toolkit for Pandoc 
+A Markdown Interactive Presentation Tool for Pandoc 
 
 **IMPORTANT:** This software is in a very early experimental stage
 
@@ -25,7 +25,7 @@ brew install pandoc
 
 No download necessary. Include MD Presenter loading script URL when running Pandoc to convert MD to HTML.
 
-## Conversion from `md` to `html`
+## Usage
 
 1. Create a Markdown document `INPUT.md` with sections/pages separated by `---`.
 2. Convert the document using Pandoc with MD Presenter loading script html as shown below.
