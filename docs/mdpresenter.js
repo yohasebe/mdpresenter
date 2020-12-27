@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(window).on("load", function(){
 
   var bodyHtml = $("body").html();
   var divs = "<div class='psections'>";
