@@ -4,13 +4,14 @@ $(window).on("load", function(){
   var divs = "<div class='psections'>";
   $("body").css("margin-bottom", parseInt(bottom_padding) + "px");
   bodyHtml.split('<hr>').forEach(function(elem, i){
-    if (i == 0 && !$(elem).has("header")){
+    if(elem == null || elem.trim()== ''){
       return;
-    }
-    if(elem){
+    } else {
       divs = divs + '<div class="psection" id="ps' + i + '">' + elem + '</div>';
     }
   });
+  divs = divs + "</div>";
+  console.log(divs);
   $("body").html(divs);
   $(".psection").last().append('<p><i>end of document</i></p>')
   
