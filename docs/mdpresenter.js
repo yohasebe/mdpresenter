@@ -125,6 +125,7 @@ $(window).on("load", function(){
   var duration = 0;
   var quiz_all_answered = false;
 
+  last_parent = "";
   function moveCursor(current, direction = "top"){
     allText.removeClass("current");
     $(".parental").removeClass("parental");
@@ -132,8 +133,8 @@ $(window).on("load", function(){
     currentText.addClass("current");
 
     startOfSection = false;
-    var parent = currentText.parents('.psection').first(); 
-    if(parent.children().first().hasClass("current")){
+    var parent = currentText.closest('.psection').first(); 
+    if (parent != last_parent){
       startOfSection = true;
     }
 
@@ -162,6 +163,7 @@ $(window).on("load", function(){
         } 
       }
     }
+    last_parent = parent;
   }
 
   $("p:not(blockquote *, dl *, dd *, li *), dt, li:not(table *), a:not(:has(img)), h1, h2, h3, h4, h5, h6, blockquote, pre, div.line-block").on("click", function(){
@@ -316,8 +318,7 @@ $(window).on("load", function(){
 
   var bottom_padding = ($(window).height() - $(allText[-1]).height()) / 2;
   $("body").css("margin-bottom", parseInt(bottom_padding) + "px");
-  $(".psection").hide();
-  $(".psection").first().show();
+  $(".psection").slice(1).hide();
   $("hr").hide();
 
   var wheelActionLoading = false;
