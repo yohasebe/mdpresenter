@@ -3,6 +3,8 @@ subtitle: A Markdown Presentation Toolkit for Pandoc
 author: Yoichiro Hasebe
 date: October 10, 2020 (Work in Progress / Experimental Stage)
 
+----
+
 <https://yohasebe.github.io/mdpresenter>
 
 ----
@@ -52,7 +54,7 @@ From A to B
 
 A.  abc
 B.  def
-C.  fgh
+C.  ghi
 
 ----
 
@@ -138,7 +140,7 @@ Table: Table Caption 1
 
 ### Quiz
 
-Lorem ipsum dolor sit [amet]{.quiz}, consectetur [adipiscing]{.quiz} elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad {minim} veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. {Duis} aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est {laborum}.
+Lorem ipsum dolor sit [amet]{.quiz}, consectetur [adipiscing]{.quiz} elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad [minim]{.quiz} veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. [Duis]{.quiz} aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est [laborum]{.quiz}.
 
 ----
 
@@ -180,9 +182,13 @@ Lorem ipsum dolor sit [amet]{.quiz}, consectetur [adipiscing]{.quiz} elit, sed d
 
 ## Keybindings
 
-`UP` / `DOWN`
+`DOWN` / `J` / `SPACE`
 
-: Move cursor up and down
+: Move cursor down
+
+`UP` / `K`
+
+: Move cursor up
 
 `ENTER` / `DOT (.)`
 
@@ -192,10 +198,6 @@ Lorem ipsum dolor sit [amet]{.quiz}, consectetur [adipiscing]{.quiz} elit, sed d
 * Focusing an image = Expand the image
 * Focusing a quiz element = show the answer key
 
-`SPACE` / `RIGHT`
-
-: Move cursor to next element, focus it, and set it to middle of screen
-
 `HOME`
 
 : Move to top
@@ -204,8 +206,7 @@ Lorem ipsum dolor sit [amet]{.quiz}, consectetur [adipiscing]{.quiz} elit, sed d
 
 : Move to end
 
-`P`
+`ESC`
 
 : Show all the quiz answer keys and disable shading (for printing or exporting the document)
 
-----
