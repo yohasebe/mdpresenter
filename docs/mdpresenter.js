@@ -149,26 +149,22 @@ $(window).on("load", function(){
       currentText.next().children().addClass("parental")
     }
 
-    if(in_page_mode){
-      setToMiddle(currentText, duration);
-    }else{
-      if(startOfSection && direction === "down"){
-        $(".psection").hide();
-        parent.fadeIn(500);
-        setToTop(currentText, duration);
-      } else if(direction === "top"){
-        $(".psection").hide();
-        parent.show();
-        setToBottom(currentText, duration);
-      } else if(current >= 0) {
-        if(direction === "down" && currentText.isOnScreen() == false) {
-          if(["DT"].includes(currentText.prop("tagName"))){
-            currentText = currentText.next();
-          }
-          setToBottom(currentText, duration);
-        } else if(direction === "top" && currentText.isOnScreen() == false) {
-          setToTop(currentText, duration);
+    if(!in_page_mode && startOfSection && direction === "down"){
+      $(".psection").hide();
+      parent.fadeIn(500);
+      setToTop(currentText, duration);
+    } else if(!in_page_mode && direction === "top"){
+      $(".psection").hide();
+      parent.show();
+      setToBottom(currentText, duration);
+    } else if(current >= 0) {
+      if(direction === "down" && currentText.isOnScreen() == false) {
+        if(["DT"].includes(currentText.prop("tagName"))){
+          currentText = currentText.next();
         }
+        setToBottom(currentText, duration);
+      } else if(direction === "top" && currentText.isOnScreen() == false) {
+        setToTop(currentText, duration);
       }
     }
   }
@@ -259,26 +255,52 @@ $(window).on("load", function(){
 
   $(window).keydown(function(e){
     var kc = e.keyCode;
+    // ESC
+    if(kc === 27){
+      var currentText = $(allText[currentNum]);
+      if(in_page_mode){
+        $("span.answer").toggleClass("answer").toggleClass("quiz");
+        $("li, pre, blockquote, p, dt, h1, h2, h3, h4, h5, h6, div.line-block").removeClass("printing")
+        in_page_mode = false;
+        $(".psection").hide();
+        var parent = currentText.parents('.psection').first();
+        parent.show();
+        $("hr").hide();
+      } else {
+        $("span.quiz").toggleClass("quiz").toggleClass("answer");
+        $("li, pre, blockquote, p, dt, h1, h2, h3, h4, h5, h6, div.line-block").addClass("printing");
+        in_page_mode = true;
+        $(".psection").show();
+        setToMiddle(currentText, duration);
+        $("hr").show();
+      }
+      e.preventDefault();
+      e.stopPropagation()
+      return;
     // J or DOWN or RIGHT or SPACE
-    if(kc === 74 || kc === 40 || kc ===39 || kc === 32){
+    } else if(kc === 74 || kc === 40 || kc ===39 || kc === 32){
       goDown();
       e.preventDefault();
       e.stopPropagation()
+      return;
     // K or UP or LEFT
     } else if(kc === 75 || kc === 38 || kc == 37){
       goUp();
       e.preventDefault();
       e.stopPropagation()
+      return;
     // END
     } else if(kc === 35){
       toEnd();
       e.preventDefault();
       e.stopPropagation()
+      return;
     // HOME
     } else if(kc === 36){
       toHome();
       e.preventDefault();
       e.stopPropagation()
+      return;
     // DOT(.) or ENTER
     } else if(kc === 190 || kc === 13){
       var currentText = $(allText[currentNum]);
@@ -304,43 +326,26 @@ $(window).on("load", function(){
       }
       e.preventDefault();
       e.stopPropagation()
-    // ESC
-    } else if(kc === 27){
-      var currentText = $(allText[currentNum]);
-      if(in_page_mode){
-        $("span.answer").toggleClass("answer").toggleClass("quiz");
-        $("li, pre, blockquote, p, dt, h1, h2, h3, h4, h5, h6, div.line-block").removeClass("printing")
-        in_page_mode = false;
-        $(".psection").hide();
-        var parent = currentText.parents('.psection').first();
-        parent.show();
-        $("hr").hide();
-      } else {
-        $("span.quiz").toggleClass("quiz").toggleClass("answer");
-        $("li, pre, blockquote, p, dt, h1, h2, h3, h4, h5, h6, div.line-block").addClass("printing");
-        in_page_mode = true;
-        $(".psection").show();
-        setToMiddle(currentText, duration);
-        $("hr").show();
-      }
-      setToTop();
-      e.preventDefault();
-      e.stopPropagation()
+      return;
     }
   });
 
   var wheelActionLoading = false;
   $(window).on('wheel', function(e) {
-    const isScrollingDown = Math.sign(e.wheelDeltaY);
-    if(!wheelActionLoading){
-      wheelActionLoading = true;
-      var delta = e.originalEvent.deltaY;
-      if (delta > 0) {
-        goDown();
-      } else {
-        goUp();
+    if(!in_page_mode){
+      const isScrollingDown = Math.sign(e.wheelDeltaY);
+      if(!wheelActionLoading){
+        wheelActionLoading = true;
+        var delta = e.originalEvent.deltaY;
+        if (delta > 0) {
+          goDown();
+        } else {
+          goUp();
+        }
+        wheelActionLoading = false;
       }
-      wheelActionLoading = false;
+      e.preventDefault();
+      e.stopPropagation()
     }
   });
 

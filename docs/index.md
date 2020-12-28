@@ -6,10 +6,11 @@
 
 **<https://github.com/yohasebe/mdpresenter>**
 
-- Press `ESC` to toggle between <u>single-page</u> mode and <u>presentation</u> mode
-- Press `ENTER` to highlight/focus the current element
+Press `ESC` to toggle between <u>single-page</u> mode and <u>presentation</u> mode
+
 - Use `UP`/`DOWN` or `J`/`K` to go forward and backward in presentation mode
 - Use `CTRL`/`CMD` + `+`/`-` to adjust zoom levels
+- Press `ENTER` to highlight/focus the current element
 
 ----
 
