@@ -497,3 +497,13 @@ hr {
   margin-top:15px;
   margin-bottom:15px;
 }
+
+.psection:hover{
+    /* cursor: move; */
+    /* cursor: -webkit-grab; */
+    /* cursor: grab; */
+}
+.psection.grabbing { 
+    cursor: grab; 
+    cursor: -webkit-grab;
+}
