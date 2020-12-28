@@ -35,7 +35,7 @@ Names of input/output files can be altered as you like.
 4. Adjust screen zoom level
 
 ```shell
-pandoc -f markdown+mmd_title_block -t html -s \
+pandoc -f markdown+mmd_title_block -t html -s --quiet\
        -H https://yohasebe.github.io/mdpresenter/mdpresenter.loader.html \
        INPUT.md -o OUTPUT.html
 ```
@@ -48,6 +48,8 @@ pandoc -f markdown+mmd_title_block -t html -s \
 |`ESC`|Switch between **single-page** and **presentation** modes|
 |`DOWN`/`J`/`SPACE`|Move cursor down|
 |`UP`/`K`|Move cursor up|
+|`N`|Go to next block/slide|
+|`P`|Go to previous block/slide|
 |`ENTER`/`DOT (.)`| Focus/defocus current element |
 
 * Focusing a link = open a new window and access the link

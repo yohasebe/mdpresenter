@@ -2,16 +2,18 @@ $(window).on("load", function(){
 
   var bodyHtml = $("body").html();
   var divs = "<div class='psections'>";
+  var numPages = 0
   bodyHtml.split('<hr>').forEach(function(elem, i){
     if(elem == null || elem.trim()== ''){
       return;
     } else {
       divs = divs + '<div class="psection" id="ps' + i + '">' + elem + '<hr /></div>';
+      numPages = numPages + 1;
     }
   });
   divs = divs + "</div>";
   $("body").html(divs);
-  $(".psection").last().append('<p><i>End of document</i></p>')
+  $(".psections").append('<div class="psection" id="ps' + numPages+ '"><p><i>End of Document</i></p></div>')
 
   $("table").each(function(){
     $(this).wrap("<p><p>");
@@ -119,6 +121,7 @@ $(window).on("load", function(){
   });
 
   var allText = $("p:not(blockquote *, dl *, dd *, li *), dt, li:not(table *, :has(ul), :has(ol)), a:not(:has(img)), h1, h2, h3, h4, h5, h6, blockquote, pre, div.line-block, span.quiz");
+  allText.addClass("elem");
 
   var topMargin = 50;
   var bottomMargin = 50;
@@ -253,6 +256,37 @@ $(window).on("load", function(){
     }
   }
 
+  function goNextPage(){
+    var pageNum = 0;
+    if(last_parent){
+      pageNum = parseInt(last_parent.substr(2));
+    }
+    var nextPageNum = pageNum + 1;
+    console.log(nextPageNum);
+    var nextPage = $("#ps" + nextPageNum);
+    if(!nextPage || nextPageNum >= $(".psection").length){
+      return;
+    }
+    var currentText = nextPage.children().first(".elem");
+    currentNum = allText.index(currentText);
+    moveCursor(currentNum);
+  }
+
+  function goPrevPage(){
+    var pageNum = 0;
+    if(last_parent){
+      pageNum = parseInt(last_parent.substr(2));
+    }
+    var nextPageNum = pageNum - 1;
+    var nextPage = $("#ps" + nextPageNum);
+    if(!nextPage || nextPageNum < 0){
+      return;
+    }
+    var currentText = nextPage.children().first(".elem");
+    currentNum = allText.index(currentText);
+    moveCursor(currentNum);
+  }
+
   $(window).keydown(function(e){
     var kc = e.keyCode;
     // ESC
@@ -286,6 +320,18 @@ $(window).on("load", function(){
     // K or UP or LEFT
     } else if(kc === 75 || kc === 38 || kc == 37){
       goUp();
+      e.preventDefault();
+      e.stopPropagation()
+      return;
+    // N
+    } else if(kc === 78){
+      goNextPage();
+      e.preventDefault();
+      e.stopPropagation()
+      return;
+    // P
+    } else if(kc === 80){
+      goPrevPage();
       e.preventDefault();
       e.stopPropagation()
       return;

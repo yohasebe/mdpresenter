@@ -8,7 +8,8 @@
 
 Press `ESC` to toggle between <u>single-page</u> mode and <u>presentation</u> mode
 
-- Use `UP`/`DOWN` or `J`/`K` to go forward and backward in presentation mode
+- Use `UP`/`DOWN` and `J`/`K` to go forward and backward
+- Use `N` and `P` to go to the next or previous block/slide
 - Use `CTRL`/`CMD` + `+`/`-` to adjust zoom levels
 - Press `ENTER` to highlight/focus the current element
 
