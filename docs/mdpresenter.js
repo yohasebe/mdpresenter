@@ -130,7 +130,7 @@ $(window).on("load", function(){
 
   var last_parent = "";
 
-  function moveCursor(current, direction = "top"){
+  function moveCursor(current = 0, direction = "top"){
     allText.removeClass("current");
     $(".parental").removeClass("parental");
     var currentText = $(allText[current]);
