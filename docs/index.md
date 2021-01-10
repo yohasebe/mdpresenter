@@ -1,164 +1,93 @@
-# MD Presenter
+# Technology and Communication
 
-## A Markdown Presentation Tool for Pandoc
+# 第13回：今後の予定と連絡事項
 
-#### Yoichiro Hasebe
-
-**<https://github.com/yohasebe/mdpresenter>**
-
-Press `ESC` to toggle between <u>single-page</u> mode and <u>presentation</u> mode
-
-- Use `UP`/`DOWN` and `J`/`K` to go forward and backward
-- Use `N` and `P` to go to the next or previous block/slide
-- Use `CTRL`/`CMD` + `+`/`-` to adjust zoom levels
-- Press `ENTER` to highlight/focus the current element
+同志社大学 グローバル・コミュニケーション学部\
+長谷部 陽一郎
 
 ----
 
-## Block Types
+<div style='background-color: #FFF0F5 ; padding: 1em;'>
 
-### Paragraph
+### 今回の講義動画・講義資料・課題提出リンク
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+下記の動画リンクを開き、再生ボタンを押して講義動画を視聴してください。画面右下の⚙で設定を開くと画質が調整できるので、文字を見やすくするため、より良い画質を選択することをお勧めします。視聴に問題がある場合はe-classのメッセージなどで知らせてください。
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+* [🎥  今後の予定と連絡事項 講義動画](https://youtu.be/A2iPgQvWr_4)
 
-----
-
-### Paragraph with Quiz
-
-Press `Enter` or `DOT (.)` to reveal answers.
-
-Lorem ipsum dolor sit [amet]{.quiz}, consectetur [adipiscing]{.quiz} elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad [minim]{.quiz} veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. [Duis]{.quiz} aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est [laborum]{.quiz}.
+</div>
 
 ----
 
+<div style='background-color: #dbf7cf; padding: 1em;'>
 
-### Unordered List
+### 学期末レポートについて
 
-* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-* Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-* Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-* Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+下記のテーマについて調査と考察を行い、レポートを完成させなさい。
 
-----
+**テーマ「技術革新とコミュニケーション」**
 
-### List Items with URLs
+> <b>人類の歴史において起こった複数の重要な技術革新</b>を時系列順に取り上げて、それらが人々のコミュニケーションのあり方をいかに変えてきたかについて論じなさい。また、近年の技術の進歩が今後の私たちのコミュニケーションのあり方をどのように変える可能性があるかを論じなさい。単に自らの考えを述べるのではなく、できるだけ図書館の文献資料などを参考にして、客観的な事実に基づいた考察となるよう心がけること。また、文章の中で、本授業で紹介した、「人工的であることは人間にとって自然」という言葉の意味や由来について、何らかの形で言及するようにしなさい。
 
-Press `Enter` to access sites.
+Microsoft Wordで、下記の設定を行った上でファイルを作成し、日本語で記述すること。
 
-* [Google](https://google.com)
-* [Github](https://github.com)
-* [Twitter](https://twitter.com)
+- 上下左右マージン20mm
+- 1ページの行数：40行
+- フォント：MS明朝＋Century
+- フォントサイズ：10.5ポイント
+- ファイル名：technology-and-communication-report.docx
 
-----
+本文全体で4,000程度を目安とする（字数にタイトルや注は含めてよいが参考文献リストは含めない）。
 
-### Ordered List
+図書館の文献やウェブの資料を数多く参照することを推奨するが、適切な形式で引用する部分以外は必ず自分の言葉で論じること。
 
-From 1 to 3
+ファイルの最後に参考文献リストを設けること。書籍の巻末に示された参考文献などを参考に、首尾一貫した形式で作成すること。また本文中では適切な形で参考文献に言及したり引用したりすること。
 
-1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-2. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-3. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+**提出方法**
 
-From A to B
+1月14日（木）〜1月28日（木）の期間にe-class上の「学期末レポート提出フォーム」でWordファイルを提出。
 
-A.  abc
-B.  def
-C.  ghi
+注意：Wordファイルのサイズは10MBまでにおさめること。レポートに画像を貼付することはOKだが、それによってファイルサイズの上限を超えないよう注意すること。
+
+</div>
 
 ----
 
-### List Inside List
+<div style='background-color: #c9e5f3; padding: 1em;'>
 
-1. - Lorem ipsum dolor sit amet
-   - Lorem ipsum dolor sit amet
-   - Lorem ipsum dolor sit amet
+### 今回の小テスト
 
-2. - Lorem ipsum dolor sit amet
-   - Lorem ipsum dolor sit amet
-   - Lorem ipsum dolor sit amet
+前回の授業で予告した通りこれまでの授業の内容（1～13回授業）の理解度を問うオンライン形式の小テストを実施します。
 
-----
+**講義動画を視聴した後、下記の注意をよく確認した上で** e-classの今回の授業セクションからアクセスして受験してください。
 
-### Arbitrarily Numbered List
+* 空欄補充問題：約15問
+* 正誤解答問題：約15問
 
-98. a. Lorem ipsum dolor sit amet
-    b. Lorem ipsum dolor sit amet
-    c. Lorem ipsum dolor sit amet
+小テストといっても、ウェブ上のフォーム形で回答してもらう形式になりますので、ノートや配布資料を見ても構いません。期限までのどの時間帯に受けても構いませんが、開始から60分以内に提出を完了する必要があります。また、1度しか受験できませんので、気をつけてください。手元にノートや配布資料をもっておき、その資料のどこに何が書いてあるかを把握したうえでのぞんでください。
 
-99. a. Lorem ipsum dolor sit amet
-    b. Lorem ipsum dolor sit amet
-    c. Lorem ipsum dolor sit amet
+* 提出期限：次回授業前日の1月13日23:59まで
+* 注意1：解答を開始したら60分以内に提出すること
+* 注意2：1度しか受験できません（回線の安定した場所で受験してください）
+
+</div>
 
 ----
 
-### Definition
+### 今後の予定について
 
-Lorem ipsum
+第14回と第15回授業では下記の内容を扱います。当初は今回の第13回授業で「計算機プログラミング言語の発展」を扱い、同時に小テストを実施する予定でしたが、変更を加えることにしました。多くの授業で本年度は例年とは異なる点が多いため、受講者の負担を考慮して、今回の授業では第1回〜13回（実質的には12回まで）の内容を扱った小テストの実施にとどめます。
 
-: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+**第14回授業の内容**
 
-Lorem ipsum
+- 計算機プログラミング言語の発展
 
-: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+**第15回授業の内容**
 
-----
-
-### Code Block
-
-```
-div.line-block{
-  font-weight: bold;
-}
-```
+- 機械学習とは何か
+- これまでの課題の解答に対するコメント
+- 全体のまとめ
 
 ----
 
-### Line Block
 
-| Lorem ipsum dolor sit amet, consectetur adipiscing elit
-| Ut enim ad minim veniam
-| Duis aute irure dolor in reprehenderit
-| Excepteur sint occaecat cupidatat non proident
-
-----
-
-### Image
-
-Press `Enter` to expand/shrink images.
-
-![Picture: Louvre](https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Louvre_Museum_Wikimedia_Commons.jpg/1200px-Louvre_Museum_Wikimedia_Commons.jpg)
-
-----
-
-### Table
-
-| TH | TH | TH |
-|:---|:---|:---|
-| TD | TD | TD |
-| TD | TD | TD |
-
-Table: Table Caption 1
-
-----
-
-### Blockquote
-
-> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-----
-
-### Headings
-
-# Heading Level 1
-
-## Heading Level 2
-
-### Heading Level 3
-
-#### Heading Level 4
-
-##### Heading Level 5
-
-----

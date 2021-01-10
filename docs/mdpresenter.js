@@ -264,10 +264,11 @@ $(window).on("load", function(){
     var nextPageNum = pageNum + 1;
     console.log(nextPageNum);
     var nextPage = $("#ps" + nextPageNum);
-    if(!nextPage || nextPageNum >= $(".psection").length){
+    if(!$(nextPage) || nextPageNum >= $(".psection").length){
       return;
     }
-    var currentText = nextPage.children().first(".elem");
+    // var currentText = nextPage.children().first(".elem");
+    var currentText = nextPage.find('.elem:first')
     currentNum = allText.index(currentText);
     moveCursor(currentNum);
   }
@@ -282,7 +283,8 @@ $(window).on("load", function(){
     if(!nextPage || nextPageNum < 0){
       return;
     }
-    var currentText = nextPage.children().first(".elem");
+    // var currentText = nextPage.children().first(".elem");
+    var currentText = nextPage.find('.elem:first')
     currentNum = allText.index(currentText);
     moveCursor(currentNum);
   }
