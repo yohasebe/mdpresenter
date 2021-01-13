@@ -135,6 +135,8 @@ $(window).on("load", function(){
     $(".parental").removeClass("parental");
     var currentText = $(allText[current]);
     currentText.addClass("current");
+    $(".selected").removeClass("selected");
+    currentText.addClass("selected");
 
     startOfSection = false;
     var parent = currentText.closest('.psection');
@@ -325,14 +327,14 @@ $(window).on("load", function(){
       e.preventDefault();
       e.stopPropagation()
       return;
-    // N
-    } else if(kc === 78){
+    // N or PageDown
+    } else if(kc === 78 || kc == 34){
       goNextPage();
       e.preventDefault();
       e.stopPropagation()
       return;
-    // P
-    } else if(kc === 80){
+    // P or PageUp
+    } else if(kc === 80 || kc == 33){
       goPrevPage();
       e.preventDefault();
       e.stopPropagation()
