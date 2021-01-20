@@ -7,7 +7,7 @@ body {
   text-size-adjust:100%;
   max-width:100%;
   margin: 0;
-  color: #333;
+  color: #555;
   background-color:#fff;
   padding: 40px;
   font-size: 12px;
@@ -123,7 +123,7 @@ dd {
 }
 
 code, pre {
-  font-family:SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace
+  font-family:SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
 }
 
 pre {
@@ -463,7 +463,7 @@ div.line-block.selected {
 }
 
 li, pre, blockquote, p, dt, h1, h2, h3, h4, h5, h6, div.line-block {
-  opacity: 0.7;
+  /* opacity: 0.7; */
 }
 
 .current, .selected, .parental{
@@ -483,8 +483,8 @@ header {
   margin-bottom: 32px;
 }
 
-.current p, div.current, div.line-block.current, li.current{
-  color: #222222;
+.current p, div.current, div.line-block.current, li.current, pre.current, blockquote.current{
+  color: #444;
 }
 
 hr {
