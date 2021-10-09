@@ -380,24 +380,24 @@ $(window).on("load", function(){
     }
   });
 
-  var wheelActionLoading = false;
-  $(window).on('wheel', function(e) {
-    if(!in_page_mode){
-      const isScrollingDown = Math.sign(e.wheelDeltaY);
-      if(!wheelActionLoading){
-        wheelActionLoading = true;
-        var delta = e.originalEvent.deltaY;
-        if (delta > 0) {
-          goDown();
-        } else {
-          goUp();
-        }
-        wheelActionLoading = false;
-      }
-      e.preventDefault();
-      e.stopPropagation()
-    }
-  });
+  // var wheelActionLoading = false;
+  // $(window).on('wheel', function(e) {
+  //   if(!in_page_mode){
+  //     const isScrollingDown = Math.sign(e.wheelDeltaY);
+  //     if(!wheelActionLoading){
+  //       wheelActionLoading = true;
+  //       var delta = e.originalEvent.deltaY;
+  //       if (delta > 0) {
+  //         goDown();
+  //       } else {
+  //         goUp();
+  //       }
+  //       wheelActionLoading = false;
+  //     }
+  //     e.preventDefault();
+  //     e.stopPropagation()
+  //   }
+  // });
 
   // code to enable drag scroll
   var clicked = false, clickY;
