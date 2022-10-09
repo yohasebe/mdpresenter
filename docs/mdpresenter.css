@@ -1,178 +1,176 @@
 html{
-  background-color:#fff;
+  background-color: #fff;
 }
 
 body {
   font: 14px/21px -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  text-size-adjust:100%;
-  max-width:100%;
+  text-size-adjust: 100%;
+  max-width: 100%;
   margin: 0;
   color: #555;
-  background-color:#fff;
+  background-color: #fff;
   padding: 40px;
   font-size: 12px;
 }
 
 aside, article, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display:block
+  display: block;
 }
 
 a {
-  background-color:transparent
+  background-color: transparent;
   color: #4183c4;
-  text-decoration:none
+  text-decoration: none;
 }
 
 p {
-  margin:1em 0
+  margin: 1em 0;
 }
 
 img {
-  border:0
+  border: 0;
   max-width: 100%;
   -moz-box-sizing: border-box;
-  box-sizing:border-box
+  box-sizing: border-box;
 }
 
 figure {
-  margin:1em 40px
+  margin: 1em 40px;
 }
 
 code, kbd, pre, samp {
   font-family: monospace, monospace;
-  font-size:1em
+  font-size: 1em;
 }
 
 pre {
-  overflow:auto
+  overflow: auto;
 }
 
 table {
   border-collapse: collapse;
-  border-spacing:0
+  border-spacing: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  /* font-weight: 600; */
   font-weight: bold;
   line-height: 1.1;
   margin: 16px 0 16px;
-  padding:0
+  padding: 0;
   color: #00587a;
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 24px;
   line-height: 40px;
   margin: 0 0 16px;
-  padding:0 0 9.600000381469727px;
+  padding: 0 0 9.600000381469727px;
   padding-top: 0.3em;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 30px;
-  padding:0 0 7.199999809265137px;
+  padding: 0 0 7.199999809265137px;
   padding-top: 0.4em;
   background-color: #eee;
 }
 
 h3 {
-  font-size: 20px;
-  line-height:25px
+  font-size: 18px;
+  line-height: 25px;
 }
 
 h4 {
   font-size: 16px;
   line-height: 20px;
   margin: 24px 0 16px;
-  padding:0
+  padding: 0;
 }
 
 h5 {
   font-size: 14px;
-  line-height:17px
+  line-height: 17px;
 }
 
 h6 {
   font-size: 13.600000381469727px;
-  line-height:17px
+  line-height: 17px;
 }
 
 blockquote {
-  margin:0
+  margin: 0;
 }
 
 ol ol, ul ol {
   list-style-type: lower-alpha;
-  padding-left: 1.5em; !important;
+  padding-left: 1.5em !important;
 }
 
 ol ul, ul ul {
   list-style-type: disc;
-  padding-left: 1.5em; !important;
+  padding-left: 1.5em !important;
 }
 
 ul ul ol, ul ol ol, ol ul ol, ol ol ol {
   list-style-type: lower-alpha;
-  padding-left: 1.5em; !important;
+  padding-left: 1.5em !important;
 }
 
 dd {
-  margin-left:0
+  margin-left: 0;
 }
 
 code, pre {
-  font-family:SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
 }
 
 pre {
   background-color: #f6f8fa;
-  /* border-radius: 3px; */
   font-size: 85%;
   line-height: 1.45;
   overflow: auto;
   padding: 16px;
   margin-top: 0;
-  margin-bottom:0
+  margin-bottom: 0;
 }
 
 p, blockquote, ul, ol, dl, table, pre {
-  margin-bottom:16px
+  margin-bottom: 16px;
 }
 
 ul, ol {
-  padding-left:2.8rem
+  padding-left: 2.8rem;
 }
 
 ol ol, ol ul {
   margin-top: 0;
-  margin-bottom:0
+  margin-bottom: 0;
 }
 
 
 li > p {
-  margin-bottom:0
+  margin-bottom: 0;
 }
 
 li p + p {
-  margin-top:16px
+  margin-top: 16px;
 }
 
 dl {
-  padding:0
+  padding: 0;
 }
 
 dl dt {
   padding: 0;
   margin-top: 16px;
   font-size: 1em;
-  font-weight:700
+  font-weight: 700;
 }
 
 dl dd {
   padding: 0 16px;
-  margin-bottom:16px
+  margin-bottom: 16px;
 }
 
 blockquote {
@@ -180,46 +178,45 @@ blockquote {
 }
 
 blockquote > :first-child {
-  margin-top:0
+  margin-top: 0;
 }
 
 blockquote > :last-child {
-  margin-bottom:0
+  margin-bottom: 0;
 }
 
 table th {
   font-weight: 700;
   padding: 6px 13px;
-  border:1px solid #ddd
+  border: 1px solid #ddd;
 }
 
 table td {
   padding: 6px 13px;
-  border:1px solid #ddd
+  border: 1px solid #ddd;
 }
 
 table tr {
   background-color: #fff;
-  border-top:1px solid #ccc
+  border-top: 1px solid #ccc;
 }
 
 table tr:nth-child(2n) {
-  background-color:#f8f8f8
+  background-color: #f8f8f8;
 }
 
 code {
   background-color: rgba(0, 0, 0, 0.04);
-  /* border-radius: 3px; */
   font-size: 85%;
   margin: 0;
   padding-bottom: .2em;
   padding-top: .2em;
-  padding:0
+  padding: 0;
 }
 
 code::before, code::after {
   content: '\00a0';
-  letter-spacing:-.2em
+  letter-spacing: -.2em;
 }
 
 pre > code {
@@ -228,7 +225,7 @@ pre > code {
   font-size: 100%;
   white-space: pre;
   background: transparent;
-  border:0
+  border: 0;
 }
 
 pre {
@@ -238,8 +235,7 @@ pre {
   font-size: 85%;
   line-height: 1.45;
   background-color: #f7f7f7;
-  /* border-radius: 3px; */
-  word-wrap:normal
+  word-wrap: normal;
 }
 
 pre code {
@@ -251,51 +247,44 @@ pre code {
   line-height: inherit;
   word-wrap: normal;
   background-color: transparent;
-  border:0
+  border: 0;
 }
 
 pre code:before, pre code:after {
-  content:normal
+  content: normal;
 }
 
 ::selection {
-  background:rgba(157, 193, 200, 0.5)
+  background: rgba(157, 193, 200, 0.5);
 }
 
 h1::selection {
-  background-color:rgba(45, 156, 208, 0.3)
+  background-color: nrgba(45, 156, 208, 0.3);
 }
 
 h2::selection {
-  background-color:rgba(90, 182, 224, 0.3)
+  background-color: rgba(90, 182, 224, 0.3);
 }
 
 h3::selection, h4::selection, h5::selection, h6::selection, li::selection, ol::selection {
-  background-color:rgba(133, 201, 232, 0.3)
+  background-color: rgba(133, 201, 232, 0.3);
 }
 
 code::selection {
   background-color: rgba(0, 0, 0, 0.7);
-  color:#eeeeee
+  color: #eeeeee;
 }
 
 a::selection {
-  background-color:rgba(255, 230, 102, 0.2)
+  background-color: rgba(255, 230, 102, 0.2);
 }
 
 
 td::selection, th::selection, caption::selection {
-  background-color:rgba(180, 237, 95, 0.5)
+  background-color: rgba(180, 237, 95, 0.5);
 }
 
-/*
------yohasebe-----
- */
-
-/* @page { */
-/*   size: A4 portrait; */
-/*   margin: 15mm; */
-/* } */
+/* -----yohasebe----- */
 
 blockquote {
   margin-top: 1.5em;
@@ -416,10 +405,10 @@ h2, p.subtitle{
   font-weight: 600;
   line-height: 1.1;
   margin: 24px 0 16px;
-  padding:0;
-  font-size: 24px;
+  padding: 0;
+  font-size: 20px;
   line-height: 30px;
-  padding:0 0 7.199999809265137px;
+  padding: 0 0 7.199999809265137px;
   padding-top: 0.4em;
   background-color: #eee;
   border-left: 5px solid #fff;
@@ -430,9 +419,9 @@ p.author{
   font-weight: 600;
   line-height: 1.1;
   margin: 24px 0 16px;
-  padding:0;
+  padding: 0;
   font-size: 20px;
-  line-height:25px
+  line-height: 25px;
 }
 
 blockquote, pre{
@@ -462,10 +451,6 @@ div.line-block.selected {
   background-color: #F0F4FF;
 }
 
-li, pre, blockquote, p, dt, h1, h2, h3, h4, h5, h6, div.line-block {
-  /* opacity: 0.7; */
-}
-
 .current, .selected, .parental{
   opacity: 1.0;
 }
@@ -493,17 +478,12 @@ hr {
   height: 2px;
   background-color: #ddd;
   border: 0;
-  margin:0;
-  margin-top:15px;
-  margin-bottom:15px;
+  margin: 0;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-.psection:hover{
-    /* cursor: move; */
-    /* cursor: -webkit-grab; */
-    /* cursor: grab; */
-}
-.psection.grabbing { 
-    cursor: grab; 
-    cursor: -webkit-grab;
+.psection.grabbing {
+  cursor: grab;
+  cursor: -webkit-grab;
 }
